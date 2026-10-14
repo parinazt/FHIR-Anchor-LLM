@@ -9,6 +9,7 @@ from typing import Iterable
 
 from llm import LLMClient, LLMResponse
 from token_usage import CURRENT_USAGE
+from conversation_log import log_event
 from fhir_validator import FHIRValidator
 
 PROMPT_DIR = Path(__file__).resolve().parent / "agents"
@@ -28,10 +29,19 @@ class Agent:
                              for path in paths)
         return cls(name, prompt, llm)
 
-    def run(self, user_input: str) -> LLMResponse:
+    def run(self, user_input: str, attempt: int = 1) -> LLMResponse:
         tracker = CURRENT_USAGE.get()
         call = tracker.start(self.name) if tracker is not None else None
-        response = self.llm.generate(self.system_prompt, user_input)
+        log_event('request', agent=self.name, attempt=attempt, messages=[
+            {'role': 'system', 'content': self.system_prompt},
+            {'role': 'user', 'content': user_input}])
+        try:
+            response = self.llm.generate(self.system_prompt, user_input)
+        except Exception as exc:
+            log_event('llm_error', agent=self.name, attempt=attempt,
+                      error_type=type(exc).__name__)
+            raise
+        log_event('response', agent=self.name, attempt=attempt, **response.to_dict())
         if call is not None:
             call['usage'] = response.usage
         return response
@@ -45,7 +55,7 @@ class Agent:
             if attempt_counts is not None:
                 attempt_counts[self.name] = attempt
             print(f"  {self.name}: attempt {attempt}/{max_attempts}")
-            response = self.run(prompt)
+            response = self.run(prompt, attempt)
             payload = None
             errors = []
             if response.refusal:
@@ -61,10 +71,17 @@ class Agent:
                 except json.JSONDecodeError as exc:
                     errors = [f"Invalid JSON: {exc}"]
             if not errors:
-                validation = validator.validate_output(payload, self.name)
+                try:
+                    validation = validator.validate_output(payload, self.name)
+                except Exception as exc:
+                    log_event('validator_error', agent=self.name, attempt=attempt,
+                              error_type=type(exc).__name__, error=str(exc))
+                    raise
                 errors = list(validation.errors)
                 if validation.valid:
+                    log_event("validation", agent=self.name, attempt=attempt, valid=True, errors=[])
                     return AgentResult(payload, True, attempt)
+            log_event("validation", agent=self.name, attempt=attempt, valid=False, errors=errors)
             print(f"  {self.name}: {len(errors)} validation error(s)")
             prompt = (
                 "Correct your previous JSON output using the validation errors below. "

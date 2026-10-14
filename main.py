@@ -9,6 +9,7 @@ from pathlib import Path
 
 from config import MODES, ROOT, Settings, load_settings
 from fhir_validator import FHIRValidator, ValidatorError
+from conversation_log import CURRENT_LOG, ConversationLog
 from token_usage import CURRENT_USAGE, TokenUsage, usage_fields
 from llm import LLMClient
 from results_paths import prepare_directory, result_directory
@@ -47,6 +48,8 @@ def run_experiment(settings: Settings, llm: LLMClient,
     prepare_directory(output_dir, experiment=True)
     outputs = output_dir / "outputs"
     outputs.mkdir()
+    logs = output_dir / "logs"
+    logs.mkdir()
     report = {"generation_counts": {"completed": 0, "invalid_output": 0, "failed": 0}}
     workflow = WORKFLOWS[settings.mode]
     with (output_dir / "results.csv").open("w", encoding="utf-8", newline="") as stream:
@@ -65,6 +68,10 @@ def run_experiment(settings: Settings, llm: LLMClient,
                 agent_attempts = {}
                 token_usage = TokenUsage()
                 usage_context = CURRENT_USAGE.set(token_usage)
+                logger = ConversationLog(logs / f"{execution}_{source.stem}.jsonl")
+                log_context = CURRENT_LOG.set(logger)
+                logger.emit('run_started', file=source.name, run_id=execution,
+                            mode=settings.mode, max_attempts=settings.max_attempts)
                 try:
                     result = workflow(note, llm, validator, settings.max_attempts,
                                       attempt_counts=agent_attempts)
@@ -81,6 +88,10 @@ def run_experiment(settings: Settings, llm: LLMClient,
                     print(f"Generation failed: {source.name}, run {execution} ({type(exc).__name__})")
                 finally:
                     CURRENT_USAGE.reset(usage_context)
+                    CURRENT_LOG.reset(log_context)
+                    logger.emit('run_finished', status=status, fhir_valid=valid,
+                                agent_attempts=dict(agent_attempts),
+                                token_usage=token_usage.columns(AGENT_NAMES))
                 if agent_attempts:
                     attempts = 1 + sum(max(count - 1, 0) for count in agent_attempts.values())
                 writer.writerow({"timestamp": timestamp, "file": source.name,

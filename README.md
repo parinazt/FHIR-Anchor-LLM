@@ -528,3 +528,20 @@ Provider-reported totals are retained as supplied. These are token counts, not
 monetary costs; cached/reasoning token details and pricing are not separate columns.
 Existing CSVs are not backfilled because their usage data was not saved.
 Semantic evaluation remains optional and separate from generation.
+
+## Conversation logs
+
+Both workflows automatically write `logs/<run-id>_<note>.jsonl` beside `outputs/`.
+Each line is a JSON event with a UTC timestamp and sequence number. Agent events
+include the agent name and attempt number. Requests contain the full system and
+user messages; responses include full returned text, finish reason, refusal,
+usage, response ID, model, and elapsed time. Validation failures include the
+errors used in the next correction prompt. Merge inputs and outputs are logged
+in the same way. Run events record the final outcome and counters.
+
+Writes are synchronized across specialist threads and flushed after every event,
+so partial logs survive an interrupted run. Existing logs are replaced with the
+other results on a new experiment. No API headers or client credentials are
+logged; known environment API keys are redacted. Transport exceptions record
+only their type to avoid including request credentials. These logs contain the
+source note and generated clinical data. Earlier experiments cannot be reconstructed.

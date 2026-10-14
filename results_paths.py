@@ -24,7 +24,7 @@ def prepare_directory(path: Path, *, experiment: bool) -> None:
     if path.is_symlink():
         raise ValueError("The output directory must not be a symbolic link")
     path.mkdir(parents=True, exist_ok=True)
-    files = ({"experiment.json", "results.csv", "outputs", "semantic_facts.csv", "semantic_summary.csv"} if experiment else
+    files = ({"experiment.json", "results.csv", "outputs", "logs", "semantic_facts.csv", "semantic_summary.csv"} if experiment else
              {"source.txt", "metadata.json", "bundle.json"})
     agents = {"patient", "condition", "observation", "medication", "merge", "single"}
     for child in path.iterdir():
