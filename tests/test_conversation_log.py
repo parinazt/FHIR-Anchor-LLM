@@ -38,6 +38,9 @@ class ConversationLogTests(unittest.TestCase):
             self.assertEqual(events[0]['messages'][1]['content'], 'source')
             self.assertEqual(events[1]['text'], 'broken')
             self.assertFalse(events[2]['valid'])
-            self.assertIn('Invalid JSON', events[3]['messages'][1]['content'])
+            self.assertEqual(events[3]['messages'][1]['content'], 'source')
+            self.assertEqual(events[3]['messages'][2],
+                             {'role': 'assistant', 'content': 'broken'})
+            self.assertIn('Invalid JSON', events[3]['messages'][3]['content'])
             self.assertTrue(events[5]['valid'])
             self.assertEqual(len(events), 26)

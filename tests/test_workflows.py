@@ -20,12 +20,14 @@ class FakeLLM:
     def __init__(self, responses):
         self.responses = iter(responses)
         self.calls = []
+        self.histories = []
 
     def configuration(self):
         return {"model": "fake", "provider": "offline"}
 
-    def generate(self, system_prompt, user_input):
+    def generate(self, system_prompt, user_input, *, history=None):
         self.calls.append((system_prompt, user_input))
+        self.histories.append(list(history or []))
         response = next(self.responses)
         if isinstance(response, Exception):
             raise response
@@ -90,7 +92,8 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn("Observation.status is required", llm.calls[1][1])
         self.assertIn("original note", llm.calls[1][1])
         for name in SPECIALISTS:
-            rules = (PROMPT_DIR / f"{name}.md").read_text().strip()
+            text = (PROMPT_DIR / f"{name}.md").read_text()
+            rules = text.split("RESOURCE RULES\n", 1)[1].split("\n\nReturn a JSON object", 1)[0].strip()
             self.assertIn(rules, llm.calls[0][0])
 
     def test_invalid_json_corrected_before_validator(self):
@@ -109,6 +112,12 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(result.attempts, 3)
         self.assertEqual(result.agent_attempts, {"single": 3})
         self.assertEqual(result.bundle, BUNDLE)
+        self.assertEqual(llm.histories[1], [
+            {'role': 'user', 'content': 'note'},
+            {'role': 'assistant', 'content': json.dumps(BUNDLE)}])
+        self.assertEqual(llm.histories[2][:2], llm.histories[1])
+        self.assertEqual(llm.histories[2][2]['content'], llm.calls[1][1])
+        self.assertEqual(len(llm.histories[2]), 4)
 
     def test_exhausted_specialist_stops_before_merge(self):
         self.validator.validate_output.return_value = ValidationResult(("Invalid Patient",))

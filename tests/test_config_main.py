@@ -105,7 +105,7 @@ class ExperimentTests(unittest.TestCase):
         self.assertEqual([r['file'] for r in rows], ['a.txt', 'b.txt', 'a.txt', 'b.txt'])
         self.assertEqual([r['fhir-valid'] for r in rows], ['1', '0', '0', '1'])
         self.assertEqual([r['attempts'] for r in rows], ['1', '', '3', '1'])
-        self.assertEqual({p.name for p in self.output.iterdir()}, {'outputs', 'results.csv', 'logs'})
+        self.assertEqual({p.name for p in self.output.iterdir()}, {'outputs', 'results.csv', 'logs', 'experiment.json'})
         self.assertEqual({p.name for p in (self.output / 'outputs').iterdir()},
                          {'1_a.json', '2_a.json', '2_b.json'})
 
