@@ -63,10 +63,11 @@ class LLMClient:
                 "json_mode": self.json_mode, "timeout": self.timeout,
                 "max_retries": 0}
 
-    def generate(self, system_prompt: str, user_input: str) -> LLMResponse:
+    def generate(self, system_prompt: str, user_input: str, *, history: Optional[list] = None) -> LLMResponse:
         parameters = {
             "model": self.model,
             "messages": [{"role": "system", "content": system_prompt},
+                         *(history or []),
                          {"role": "user", "content": user_input}],
         }
         if self.temperature is not None:

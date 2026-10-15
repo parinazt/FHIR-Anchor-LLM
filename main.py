@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import csv
 import os
+import json
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -16,6 +17,7 @@ from results_paths import prepare_directory, result_directory
 from workflow_common import write_json
 from workflow_multiagent import run_multiagent
 from workflow_singleagent import run_singleagent
+from experiment_manifest import build_manifest, check_resume_manifest
 
 AGENT_NAMES = ("single", "patient", "condition", "observation", "medication", "merge")
 
@@ -23,7 +25,8 @@ WORKFLOWS = {"single-agent": run_singleagent, "multiagent": run_multiagent}
 
 
 def run_experiment(settings: Settings, llm: LLMClient,
-                   input_path: Path, output_dir: Path, validator=None) -> dict:
+                   input_path: Path, output_dir: Path, validator=None, *, resume=False,
+                   continue_run=False) -> dict:
     """Repeat the same fixed dataset; keep every attempt, including failures.
 
     Each agent validates and repairs its output. Technical validator failures
@@ -43,25 +46,96 @@ def run_experiment(settings: Settings, llm: LLMClient,
     for source, _ in notes:
         if output_dir.resolve() in source.resolve().parents:
             raise ValueError("Input notes must be outside the output directory")
+    manifest = build_manifest(settings, llm, notes)
+    latest = {}
+    executions = range(1, settings.num_of_execution + 1)
+    if continue_run:
+        if resume:
+            raise ValueError('--continue and --resume are mutually exclusive.')
+        if settings.num_of_execution != 1:
+            raise ValueError('--continue executes one run per invocation; use --num-of-execution 1.')
+        existing = output_dir / 'experiment.json'
+        if existing.exists():
+            previous_manifest = check_resume_manifest(existing, manifest, allow_extension=True)
+            resume = True
+        elif any((output_dir / name).exists() for name in ('results.csv', 'outputs', 'logs')):
+            raise ValueError('Cannot continue existing results without experiment.json.')
+    if resume:
+        if not continue_run:
+            check_resume_manifest(output_dir / 'experiment.json', manifest)
+        if (output_dir / 'results.csv').is_file():
+            with (output_dir / 'results.csv').open(encoding='utf-8', newline='') as stream:
+                for row in csv.DictReader(stream):
+                    if None not in row and all(value is not None for value in row.values()):
+                        latest[(row['run-id'], row['file'])] = row
+    if continue_run:
+        used_ids = {int(run) for run, _ in latest}
+        for folder, suffix in (('logs', '*.jsonl'), ('outputs', '*.json')):
+            for path in (output_dir / folder).glob(suffix):
+                prefix = path.stem.split('_', 1)[0]
+                if prefix.isdigit():
+                    used_ids.add(int(prefix))
+        if resume:
+            used_ids.update(item['run_id'] for item in previous_manifest.get('continuations', []))
+        execution = max(used_ids, default=0) + 1
+        executions = [execution]
+        print(f'Continue mode: processing run {execution} only')
     validator = validator if validator is not None else FHIRValidator()
     validator.preflight()
-    prepare_directory(output_dir, experiment=True)
+    if continue_run and resume:
+        previous_manifest['identity']['num_of_execution'] = max(
+            previous_manifest['identity']['num_of_execution'], execution)
+        previous_manifest.setdefault('continuations', []).append({
+            'run_id': execution, 'started_at': datetime.now(timezone.utc).isoformat(),
+            'policy': 'always_new_run', 'implementation': manifest['identity']['implementation']})
+        write_json(output_dir / 'experiment.json', previous_manifest)
+    if not resume:
+        prepare_directory(output_dir, experiment=True)
+        if continue_run:
+            manifest['continuations'] = [{
+                'run_id': execution, 'started_at': datetime.now(timezone.utc).isoformat(),
+                'policy': 'always_new_run', 'implementation': manifest['identity']['implementation']}]
+        write_json(output_dir / 'experiment.json', manifest)
     outputs = output_dir / "outputs"
-    outputs.mkdir()
+    outputs.mkdir(exist_ok=True)
     logs = output_dir / "logs"
-    logs.mkdir()
-    report = {"generation_counts": {"completed": 0, "invalid_output": 0, "failed": 0}}
+    logs.mkdir(exist_ok=True)
+    report = {"generation_counts": {"completed": 0, "invalid_output": 0, "failed": 0}, 'skipped': 0}
     workflow = WORKFLOWS[settings.mode]
-    with (output_dir / "results.csv").open("w", encoding="utf-8", newline="") as stream:
+    csv_path = output_dir / 'results.csv'
+    has_header = resume and csv_path.exists() and csv_path.stat().st_size > 0
+    if has_header:
+        with csv_path.open('rb') as stream:
+            stream.seek(-1, 2)
+            terminated = stream.read(1) in (b'\n', b'\r')
+        if not terminated:
+            with csv_path.open('ab') as stream:
+                stream.write(b'\n')
+    with csv_path.open("a" if resume else "w", encoding="utf-8", newline="") as stream:
         writer = csv.DictWriter(stream, fieldnames=[
             "timestamp", "file", "run-id", "fhir-valid", "attempts",
             *(f"{name}-attempts" for name in AGENT_NAMES),
             *usage_fields(AGENT_NAMES),
         ])
-        writer.writeheader()
+        if not has_header:
+            writer.writeheader()
         stream.flush()
-        for execution in range(1, settings.num_of_execution + 1):
+        for execution in executions:
             for source, note in notes:
+                bundle_path = outputs / f"{execution}_{source.stem}.json"
+                previous = latest.get((str(execution), source.name))
+                if previous and previous['fhir-valid'] == '1' and bundle_path.is_file():
+                    try:
+                        saved = json.loads(bundle_path.read_text(encoding='utf-8'))
+                        intact = saved.get('resourceType') == 'Bundle' and saved.get('type') == 'collection'
+                    except (ValueError, AttributeError):
+                        intact = False
+                    if intact:
+                        report['generation_counts']['completed'] += 1
+                        report['skipped'] += 1
+                        print(f"[run {execution}] {source.name}: skipped (already completed)")
+                        continue
+                bundle_path.unlink(missing_ok=True)
                 timestamp = datetime.now(timezone.utc).isoformat()
                 status, valid, attempts = "failed", 0, ""
                 technical_error = None
@@ -101,7 +175,7 @@ def run_experiment(settings: Settings, llm: LLMClient,
                                  **token_usage.columns(AGENT_NAMES)})
                 stream.flush()
                 report["generation_counts"][status] += 1
-                print(f"[{execution}/{settings.num_of_execution}] {source.name}: {status}")
+                print(f"[run {execution}] {source.name}: {status}")
                 if technical_error is not None:
                     raise technical_error
     return report
@@ -121,8 +195,15 @@ def main(arguments=None) -> None:
     parser.add_argument("--max-attempts", type=int, help="Maximum generations per agent (overrides MAX_ATTEMPTS)")
     parser.add_argument("--temperature", type=float)
     parser.add_argument("--json-mode", action="store_true")
+    continuation = parser.add_mutually_exclusive_group()
+    continuation.add_argument("--resume", action="store_true",
+                        help="Keep results and skip completed cases with matching manifest; retry missing or failed cases")
+    continuation.add_argument('--continue', dest='continue_run', action='store_true',
+                              help='Always append one NEW run ID; preserve all previous failures and interrupted runs')
     parser.add_argument("--base-url")
     args = parser.parse_args(arguments)
+    if args.continue_run and args.num_of_execution not in (None, 1):
+        parser.error('--continue executes one run per invocation; omit --num-of-execution or set it to 1.')
     if not args.model:
         parser.error("Provide --model or set LLM_MODEL in the process environment")
     try:
@@ -132,7 +213,7 @@ def main(arguments=None) -> None:
             development=loaded.development,
             mode=args.mode if args.mode is not None else loaded.mode,
             max_attempts=args.max_attempts if args.max_attempts is not None else loaded.max_attempts,
-            num_of_execution=(args.num_of_execution if args.num_of_execution is not None
+            num_of_execution=(1 if args.continue_run else args.num_of_execution if args.num_of_execution is not None
                               else loaded.num_of_execution),
         )
         llm = LLMClient(args.model, args.provider, api_key=settings.api_key(args.provider),
@@ -142,7 +223,8 @@ def main(arguments=None) -> None:
         parser.error(str(exc))
     output = args.output_dir or result_directory(settings.mode, args.model)
     try:
-        report = run_experiment(settings, llm, args.input, output)
+        report = run_experiment(settings, llm, args.input, output, resume=args.resume,
+                                continue_run=args.continue_run)
     except (OSError, ValueError, ValidatorError) as exc:
         parser.error(str(exc))
     print(f"Experiment saved in {output}. results.csv contains structural FHIR validation results (external terminology disabled).")

@@ -29,14 +29,18 @@ class Agent:
                              for path in paths)
         return cls(name, prompt, llm)
 
-    def run(self, user_input: str, attempt: int = 1) -> LLMResponse:
+    def run(self, user_input: str, attempt: int = 1, history: list | None = None) -> LLMResponse:
         tracker = CURRENT_USAGE.get()
         call = tracker.start(self.name) if tracker is not None else None
         log_event('request', agent=self.name, attempt=attempt, messages=[
             {'role': 'system', 'content': self.system_prompt},
+            *(history or []),
             {'role': 'user', 'content': user_input}])
         try:
-            response = self.llm.generate(self.system_prompt, user_input)
+            if history:
+                response = self.llm.generate(self.system_prompt, user_input, history=history)
+            else:
+                response = self.llm.generate(self.system_prompt, user_input)
         except Exception as exc:
             log_event('llm_error', agent=self.name, attempt=attempt,
                       error_type=type(exc).__name__)
@@ -51,11 +55,16 @@ class Agent:
         if max_attempts < 1:
             raise ValueError("max_attempts must be positive")
         prompt, payload = user_input, None
+        history = []
         for attempt in range(1, max_attempts + 1):
             if attempt_counts is not None:
                 attempt_counts[self.name] = attempt
             print(f"  {self.name}: attempt {attempt}/{max_attempts}")
-            response = self.run(prompt, attempt)
+            response = self.run(prompt, attempt, history)
+            history.extend([
+                {'role': 'user', 'content': prompt},
+                {'role': 'assistant', 'content': response.text},
+            ])
             payload = None
             errors = []
             if response.refusal:
@@ -104,20 +113,23 @@ class AgentResult:
 def specialist(name: str, llm: LLMClient) -> Agent:
     if name not in SPECIALISTS:
         raise ValueError(f"Unknown specialist: {name}")
-    agent = Agent.from_files(name, llm, [PROMPT_DIR / "common.md",
-                                       PROMPT_DIR / f"{name}.md"])
-    agent.system_prompt += (
-        '\n\nSPECIALIST OUTPUT: Return a JSON object {"resources": [...]} '
-        'containing only your assigned resource types, not a Bundle. '
-        'For an empty extraction return {"resources": []}. '
-        'Do not extract resources assigned to other specialists.'
-    )
+    agent = Agent.from_files(name, llm, [PROMPT_DIR / f"{name}.md"])
+    agent.system_prompt = agent.system_prompt.replace(
+        "{COMMON_CONSTRAINTS}", (PROMPT_DIR / "common.md").read_text(encoding="utf-8").strip())
     return agent
 
 
 def single_agent(llm: LLMClient) -> Agent:
-    return Agent.from_files("single", llm, [PROMPT_DIR / "common.md",
-        PROMPT_DIR / "single.md", *(PROMPT_DIR / f"{n}.md" for n in SPECIALISTS)])
+    agent = Agent.from_files("single", llm, [PROMPT_DIR / "single.md"])
+    rules = []
+    for name in SPECIALISTS:
+        text = (PROMPT_DIR / f"{name}.md").read_text(encoding="utf-8")
+        rules.append(name.upper() + "\n" + text.split("RESOURCE RULES\n", 1)[1].split(
+            "\n\nReturn a JSON object", 1)[0].strip())
+    agent.system_prompt = agent.system_prompt.replace(
+        "{COMMON_CONSTRAINTS}", (PROMPT_DIR / "common.md").read_text(encoding="utf-8").strip()
+    ).replace("{RESOURCE_RULES}", "\n\n".join(rules))
+    return agent
 
 
 def merge_agent(llm: LLMClient) -> Agent:
