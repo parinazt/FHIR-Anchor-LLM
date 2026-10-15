@@ -98,6 +98,78 @@ validation attempts produce a failed outcome, and the next note/run continues.
 A validator infrastructure failure stops the experiment instead of wasting calls.
 The command exits with status 1 if generation or validation fails.
 
+## Resume and experiment manifest
+
+Every new run writes `experiment.json` with the selected model/provider and transport
+parameters, workflow settings, effective prompts and their SHA-256 hashes, and the
+ordered dataset filenames and content hashes. Credentials are not recorded.
+
+To process all 500 notes once in PowerShell:
+
+```powershell
+$env:DEVELOPMENT = "false"
+.\.venv\Scripts\python.exe main.py --provider openai --model gpt-4.1-mini --mode multiagent --num-of-execution 1
+```
+
+To resume that experiment, use the same command with `--resume`. Completed cases
+with an existing parseable Bundle are skipped. Failed, interrupted, missing or
+unparseable outputs are generated again. Logs and CSV rows are appended to preserve
+earlier attempts; when several rows have the same file/run-id, the last is the
+current outcome. Summing all rows measures total recorded usage, including retries.
+
+Resumption requires the same settings, prompts, implementation and selected dataset as the saved
+manifest. A mismatch or missing manifest stops before modifying results. Older
+experiments without a manifest cannot be resumed. Without `--resume`, results are
+replaced as before. Keep the same DEVELOPMENT value when resuming.
+
+## One run per invocation
+
+To launch just one run at a time, use `--continue` from the first invocation:
+
+```powershell
+$env:DEVELOPMENT = "false"
+.\.venv\Scripts\python.exe main.py --provider openai --model gpt-6-luna --mode single-agent --continue
+```
+
+Repeat exactly this command to perform run 2, then run 3, etc. Each invocation
+ALWAYS starts a new run, regardless of NUM_OF_EXECUTION in .env, failures or
+interruptions in earlier runs. Previous CSV rows, logs and outputs are preserved;
+timeouts and all other failures remain outcomes of their original run. The next ID
+is greater than all run IDs already recorded or started. `--resume` retains its prior
+behavior of retrying failed/invalid cases within the manifest's run count.
+The two flags are mutually exclusive. `--continue` checks the same manifest identity,
+except that the accumulated run count may grow and scheduling/reporting code may
+change. Extraction, transport, validation, prompts and data must still match.
+Per-invocation code hashes and the continuation policy are recorded in the manifest.
+No existing results are
+deleted. Use the same model, settings, prompts and dataset on each invocation.
+
+## Compare single and multi across five runs
+
+Install the plotting dependency and generate the comparison:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-analysis.txt
+.\.venv\Scripts\python.exe compare_results.py --single-dir results/single/gpt-4.1-mini --multi-dir results/multi/gpt-4.1-mini --output-dir results/comparison/gpt-4.1-mini
+```
+
+The script writes PNG plots for dataset totals, totals by FHIR resource type,
+and individual clinical cases (25 cases per page). `summary.csv` contains mean,
+sample standard deviation (ddof=1), and number of runs for each case/type/metric;
+`per_run.csv` contains the underlying counts and `report.json` explains the policy.
+For dataset totals, counts are summed within each run BEFORE computing mean and SD.
+
+Properties are top-level resource keys except `resourceType` and `id`. Each nested
+object or array counts as one property; Bundle and fullUrl do not count. Counts
+measure output structure, not clinical quality. Failed/invalid recorded executions
+count as zero delivered validated resources/properties; missing executions are not
+zero. After `--resume`, the last CSV row per file/run-id is used.
+
+By default both methods must contain the same cases in all five runs (IDs 1–5).
+Use `--allow-incomplete` for a provisional report: only paired runs containing all
+cases in both methods are included. With one run, SD is blank in CSV and no error
+bars are drawn. The script does not run experiments or make API calls.
+
 ## Offline semantic evaluation
 
 Run the separate, deterministic checker after generation. It requires no LLM,
