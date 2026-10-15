@@ -15,40 +15,61 @@
       "resource": {
         "resourceType": "Condition",
         "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Concussion day 5 post mild head injury"
+        },
         "clinicalStatus": {
           "coding": [
             {
               "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
-              "code": "active",
-              "display": "Active"
+              "code": "active"
             }
           ]
-        },
-        "verificationStatus": {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-              "code": "confirmed",
-              "display": "Confirmed"
-            }
-          ]
-        },
-        "category": [
-          {
-            "coding": [
-              {
-                "system": "http://snomed.info/sct",
-                "code": "439401001",
-                "display": "Injury"
-              }
-            ]
-          }
-        ],
-        "code": {
-          "text": "Concussion day 5 post mild head injury"
-        },
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-2",
         "subject": {
           "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Post concussion syndrome (mild symptoms: headache, fatigue, decreased concentration)"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-3",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-3",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Anxiety related to health concerns"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
         }
       }
     },
@@ -59,14 +80,14 @@
         "id": "observation-1",
         "status": "final",
         "code": {
-          "text": "Headache severity"
+          "text": "Headache intensity"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
         "valueQuantity": {
           "value": 2,
-          "unit": "/10"
+          "unit": "on 0-10 scale"
         }
       }
     },
@@ -77,12 +98,12 @@
         "id": "observation-2",
         "status": "final",
         "code": {
-          "text": "Concentration decreased"
+          "text": "Headache description"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "yes, especially end of day, feels 'abit slower'"
+        "valueString": "mild dull frontal/temporal intermittent off/on"
       }
     },
     {
@@ -92,12 +113,12 @@
         "id": "observation-3",
         "status": "final",
         "code": {
-          "text": "Fatigue increased"
+          "text": "Concentration"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "yes"
+        "valueString": "decreased especially at end of day, patient feels \"a bit slower\""
       }
     },
     {
@@ -107,12 +128,12 @@
         "id": "observation-4",
         "status": "final",
         "code": {
-          "text": "Sleep duration increased"
+          "text": "Fatigue"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "yes, wakes okay, no confusion on waking"
+        "valueString": "increased"
       }
     },
     {
@@ -122,14 +143,12 @@
         "id": "observation-5",
         "status": "final",
         "code": {
-          "text": "Nausea or vomiting"
+          "text": "Sleep duration"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "dataAbsentReason": {
-          "text": "nil N/V"
-        }
+        "valueString": "increased"
       }
     },
     {
@@ -139,14 +158,12 @@
         "id": "observation-6",
         "status": "final",
         "code": {
-          "text": "Visual symptoms"
+          "text": "Sleep quality"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "dataAbsentReason": {
-          "text": "nil visual symptoms"
-        }
+        "valueString": "wakes okay, no confusion on waking"
       }
     },
     {
@@ -156,14 +173,12 @@
         "id": "observation-7",
         "status": "final",
         "code": {
-          "text": "Diplopia"
+          "text": "Nausea and vomiting"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "dataAbsentReason": {
-          "text": "nil diplopia"
-        }
+        "valueString": "none"
       }
     },
     {
@@ -173,14 +188,12 @@
         "id": "observation-8",
         "status": "final",
         "code": {
-          "text": "Neck pain"
+          "text": "Visual symptoms"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "dataAbsentReason": {
-          "text": "nil neck pain now"
-        }
+        "valueString": "none"
       }
     },
     {
@@ -190,14 +203,12 @@
         "id": "observation-9",
         "status": "final",
         "code": {
-          "text": "Limb weakness or paraesthesia"
+          "text": "Diplopia"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "dataAbsentReason": {
-          "text": "nil limb weakness or paraesthesia"
-        }
+        "valueString": "none"
       }
     },
     {
@@ -207,14 +218,12 @@
         "id": "observation-10",
         "status": "final",
         "code": {
-          "text": "Speech difficulty"
+          "text": "Neck pain"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "dataAbsentReason": {
-          "text": "nil speech difficulty"
-        }
+        "valueString": "none currently"
       }
     },
     {
@@ -224,14 +233,12 @@
         "id": "observation-11",
         "status": "final",
         "code": {
-          "text": "Ataxia"
+          "text": "Limb weakness or paraesthesia"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "dataAbsentReason": {
-          "text": "nil ataxia"
-        }
+        "valueString": "none"
       }
     },
     {
@@ -241,24 +248,64 @@
         "id": "observation-12",
         "status": "final",
         "code": {
+          "text": "Speech difficulties"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "none"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "status": "final",
+        "code": {
+          "text": "Ataxia"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "none"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-14",
+        "status": "final",
+        "code": {
+          "text": "Review of caffeine intake and headache"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "caffeine quantity queried as possible headache exacerbator"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-15",
+        "status": "final",
+        "code": {
           "text": "Blood pressure"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
+        "valueQuantity": {
+          "value": 118,
+          "unit": "mmHg"
+        },
         "component": [
           {
             "code": {
-              "text": "Systolic"
-            },
-            "valueQuantity": {
-              "value": 118,
-              "unit": "mmHg"
-            }
-          },
-          {
-            "code": {
-              "text": "Diastolic"
+              "text": "Diastolic blood pressure"
             },
             "valueQuantity": {
               "value": 72,
@@ -269,10 +316,10 @@
       }
     },
     {
-      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "fullUrl": "https://example.org/fhir/Observation/observation-16",
       "resource": {
         "resourceType": "Observation",
-        "id": "observation-13",
+        "id": "observation-16",
         "status": "final",
         "code": {
           "text": "Heart rate"
@@ -282,15 +329,15 @@
         },
         "valueQuantity": {
           "value": 72,
-          "unit": "beats/min"
+          "unit": "beats/minute"
         }
       }
     },
     {
-      "fullUrl": "https://example.org/fhir/Observation/observation-14",
+      "fullUrl": "https://example.org/fhir/Observation/observation-17",
       "resource": {
         "resourceType": "Observation",
-        "id": "observation-14",
+        "id": "observation-17",
         "status": "final",
         "code": {
           "text": "Respiratory rate"
@@ -300,15 +347,15 @@
         },
         "valueQuantity": {
           "value": 14,
-          "unit": "breaths/min"
+          "unit": "breaths/minute"
         }
       }
     },
     {
-      "fullUrl": "https://example.org/fhir/Observation/observation-15",
+      "fullUrl": "https://example.org/fhir/Observation/observation-18",
       "resource": {
         "resourceType": "Observation",
-        "id": "observation-15",
+        "id": "observation-18",
         "status": "final",
         "code": {
           "text": "Temperature"
@@ -318,15 +365,15 @@
         },
         "valueQuantity": {
           "value": 36.7,
-          "unit": "°C"
+          "unit": "C"
         }
       }
     },
     {
-      "fullUrl": "https://example.org/fhir/Observation/observation-16",
+      "fullUrl": "https://example.org/fhir/Observation/observation-19",
       "resource": {
         "resourceType": "Observation",
-        "id": "observation-16",
+        "id": "observation-19",
         "status": "final",
         "code": {
           "text": "Oxygen saturation"
@@ -336,10 +383,71 @@
         },
         "valueQuantity": {
           "value": 99,
-          "unit": "%",
-          "system": "http://unitsofmeasure.org",
-          "code": "%"
+          "unit": "%"
         }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-20",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-20",
+        "status": "final",
+        "code": {
+          "text": "Glasgow Coma Scale"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 15,
+          "unit": "score"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-21",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-21",
+        "status": "final",
+        "code": {
+          "text": "Neurological examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "alert and oriented times three, speech coherent, cranial nerves II-XII grossly intact, motor power 5/5 upper and lower limbs, normal tone, normal sensation left intact, coordination finger-nose-finger and heel-shin normal, gait including tandem normal, Romberg test negative, no focal neurological deficit"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-22",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-22",
+        "status": "final",
+        "code": {
+          "text": "CT brain scan result"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "negative for acute intracranial hemorrhage, no mass, no fracture, normal ventricles and cisterns, no midline shift"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-23",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-23",
+        "status": "final",
+        "code": {
+          "text": "Concussion post mild head injury symptoms at day 5"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "mild post concussive symptoms including headache, fatigue, decreased concentration, improving"
       }
     },
     {
@@ -347,16 +455,89 @@
       "resource": {
         "resourceType": "MedicationStatement",
         "id": "medication-statement-1",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Paracetamol"
+        },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "medicationCodeableConcept": {
-          "text": "Paracetamol 500mg"
-        },
-        "status": "active",
         "dosage": [
           {
-            "text": "1–2 PRN up to BD since injury"
+            "text": "500 mg 1–2 PRN up to twice daily since injury",
+            "route": {
+              "text": "oral"
+            },
+            "asNeededBoolean": true,
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 500,
+                  "unit": "mg"
+                }
+              }
+            ],
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medication-request-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medication-request-1",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Paracetamol"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1 g orally QID PRN max 4 g/24h",
+            "route": {
+              "text": "oral"
+            },
+            "asNeededBoolean": true,
+            "timing": {
+              "repeat": {
+                "frequency": 4,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 1,
+                  "unit": "g"
+                }
+              }
+            ],
+            "maxDosePerPeriod": {
+              "numerator": {
+                "value": 4,
+                "unit": "g"
+              },
+              "denominator": {
+                "value": 1,
+                "unit": "day"
+              }
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "NSAID recommended only PRN occasionally with food if needed, no regular use."
           }
         ]
       }

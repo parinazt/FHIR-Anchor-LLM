@@ -6,7 +6,8 @@
       "fullUrl": "https://example.org/fhir/Patient/patient-1",
       "resource": {
         "resourceType": "Patient",
-        "id": "patient-1"
+        "id": "patient-1",
+        "gender": "male"
       }
     },
     {
@@ -26,33 +27,7 @@
           ]
         },
         "code": {
-          "text": "Legg Calve Perthes disease right hip childhood with progressive loss of abduction and intermittent mechanical groin pain, possible residual deformity or early osteoarthritis right hip"
-        }
-      }
-    },
-    {
-      "fullUrl": "https://example.org/fhir/Condition/condition-2",
-      "resource": {
-        "resourceType": "Condition",
-        "id": "condition-2",
-        "subject": {
-          "reference": "Patient/patient-1"
-        },
-        "code": {
-          "text": "Limited right hip abduction"
-        }
-      }
-    },
-    {
-      "fullUrl": "https://example.org/fhir/Condition/condition-3",
-      "resource": {
-        "resourceType": "Condition",
-        "id": "condition-3",
-        "subject": {
-          "reference": "Patient/patient-1"
-        },
-        "code": {
-          "text": "Intermittent right hip stiffness and mechanical groin pain"
+          "text": "Legg Calve Perthes disease right hip, childhood, now progressive loss of abduction and intermittent mechanical groin pain, suspected residual deformity / early osteoarthritis right hip"
         }
       }
     },
@@ -63,12 +38,12 @@
         "id": "observation-1",
         "status": "final",
         "code": {
-          "text": "Right hip stiffness and reduced abduction"
+          "text": "Right hip abduction range"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "On and off stiffness with some reduction in right hip abduction, worsens with activity such as squatting, kneeling and getting in/out of vehicle"
+        "valueString": "Limited"
       }
     },
     {
@@ -78,12 +53,119 @@
         "id": "observation-2",
         "status": "final",
         "code": {
+          "text": "Right hip stiffness"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Intermittent on/off stiffness"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "code": {
           "text": "Right hip pain"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "Intermittent mechanical groin ache after long shifts, no acute pain today, no night pain"
+        "valueString": "Mechanical deep groin ache sometimes after long shift, no acute pain today"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "code": {
+          "text": "Night pain"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No night pain"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "code": {
+          "text": "Fever"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No fever"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "code": {
+          "text": "Hip locking or giving way"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No locking or true giving way"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "code": {
+          "text": "Hip pain exacerbation"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Sometimes leans more on left when it flares"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "status": "final",
+        "code": {
+          "text": "Medication use"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Nurofen (ibuprofen) 400mg PRN about once a week"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "status": "final",
+        "code": {
+          "text": "Recent vital signs"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dataAbsentReason": {
+          "text": "No vitals recorded for phone consult"
+        }
       }
     },
     {
@@ -100,7 +182,10 @@
         },
         "dosage": [
           {
-            "text": "400mg three times daily as needed with food, avoid if gastrointestinal upset",
+            "text": "400 mg three times daily as needed with food, avoid if GI upset",
+            "route": {
+              "text": "oral"
+            },
             "timing": {
               "repeat": {
                 "frequency": 3,
@@ -116,11 +201,8 @@
                 }
               }
             ],
-            "additionalInstruction": [
-              {
-                "text": "As needed with food, avoid if gastrointestinal upset"
-              }
-            ]
+            "asNeededBoolean": true,
+            "patientInstruction": "Take with food, avoid if GI upset"
           }
         ]
       }

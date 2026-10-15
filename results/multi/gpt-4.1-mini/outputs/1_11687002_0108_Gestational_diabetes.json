@@ -15,6 +15,12 @@
       "resource": {
         "resourceType": "Condition",
         "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Gestational diabetes mellitus (GDM)"
+        },
         "clinicalStatus": {
           "coding": [
             {
@@ -22,20 +28,6 @@
               "code": "active"
             }
           ]
-        },
-        "verificationStatus": {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-              "code": "provisional"
-            }
-          ]
-        },
-        "code": {
-          "text": "Gestational diabetes mellitus"
-        },
-        "subject": {
-          "reference": "Patient/patient-1"
         }
       }
     },
@@ -44,6 +36,12 @@
       "resource": {
         "resourceType": "Condition",
         "id": "condition-2",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Hypertension in pregnancy, suspected"
+        },
         "clinicalStatus": {
           "coding": [
             {
@@ -59,12 +57,35 @@
               "code": "provisional"
             }
           ]
-        },
-        "code": {
-          "text": "Hypertension in pregnancy - suspected pregnancy induced hypertension or early pre-eclampsia"
-        },
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-3",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-3",
         "subject": {
           "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Early pre-eclampsia suspected"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional"
+            }
+          ]
         }
       }
     },
@@ -99,8 +120,7 @@
               "unit": "mmHg"
             }
           }
-        ],
-        "effectiveDateTime": "2022-11-25"
+        ]
       }
     },
     {
@@ -134,8 +154,7 @@
               "unit": "mmHg"
             }
           }
-        ],
-        "effectiveDateTime": "2022-11-25"
+        ]
       }
     },
     {
@@ -152,9 +171,8 @@
         },
         "valueQuantity": {
           "value": 88,
-          "unit": "beats/minute"
-        },
-        "effectiveDateTime": "2022-11-25"
+          "unit": "beats/min"
+        }
       }
     },
     {
@@ -172,8 +190,7 @@
         "valueQuantity": {
           "value": 99,
           "unit": "%"
-        },
-        "effectiveDateTime": "2022-11-25"
+        }
       }
     },
     {
@@ -191,8 +208,7 @@
         "valueQuantity": {
           "value": 87,
           "unit": "kg"
-        },
-        "effectiveDateTime": "2022-11-25"
+        }
       }
     },
     {
@@ -210,8 +226,7 @@
         "valueQuantity": {
           "value": 163,
           "unit": "cm"
-        },
-        "effectiveDateTime": "2022-11-25"
+        }
       }
     },
     {
@@ -221,16 +236,15 @@
         "id": "observation-7",
         "status": "final",
         "code": {
-          "text": "Symphysis fundal height"
+          "text": "Body mass index"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
         "valueQuantity": {
-          "value": 28,
-          "unit": "cm"
-        },
-        "effectiveDateTime": "2022-11-25"
+          "value": 33,
+          "unit": "kg/m2"
+        }
       }
     },
     {
@@ -240,13 +254,12 @@
         "id": "observation-8",
         "status": "final",
         "code": {
-          "text": "Urine protein"
+          "text": "Symptom: ankle oedema"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "trace",
-        "effectiveDateTime": "2022-11-25"
+        "valueString": "Mild bilateral ankle oedema only, observed end of day"
       }
     },
     {
@@ -256,13 +269,12 @@
         "id": "observation-9",
         "status": "final",
         "code": {
-          "text": "Urine glucose"
+          "text": "Reflexes"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "negative",
-        "effectiveDateTime": "2022-11-25"
+        "valueString": "Normal reflexes, no clonus"
       }
     },
     {
@@ -272,13 +284,12 @@
         "id": "observation-10",
         "status": "final",
         "code": {
-          "text": "Urine nitrite"
+          "text": "Urine dipstick protein"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "negative",
-        "effectiveDateTime": "2022-11-25"
+        "valueString": "Trace protein"
       }
     },
     {
@@ -288,13 +299,72 @@
         "id": "observation-11",
         "status": "final",
         "code": {
-          "text": "Urine leukocyte esterase"
+          "text": "Urine dipstick glucose"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "negative",
-        "effectiveDateTime": "2022-11-25"
+        "valueString": "Negative"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-12",
+        "status": "final",
+        "code": {
+          "text": "Urine dipstick nitrite"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Negative"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "status": "final",
+        "code": {
+          "text": "Urine dipstick leukocyte esterase"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Negative"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-14",
+        "status": "final",
+        "code": {
+          "text": "Symptom: headache"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Mild intermittent frontal headache"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-15",
+        "status": "final",
+        "code": {
+          "text": "Blood glucose levels"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Fasting blood glucose approximately 5.5 to 6.0 mmol/L, post-prandial often 7 to 8 mmol/L, one reading 8.4 mmol/L (self recorded, patchy record)"
       }
     },
     {
@@ -302,12 +372,12 @@
       "resource": {
         "resourceType": "MedicationStatement",
         "id": "medication-statement-1",
-        "subject": {
-          "reference": "Patient/patient-1"
-        },
         "status": "active",
         "medicationCodeableConcept": {
           "text": "Pregnancy multivitamin"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
         }
       }
     },
@@ -316,16 +386,16 @@
       "resource": {
         "resourceType": "MedicationStatement",
         "id": "medication-statement-2",
-        "subject": {
-          "reference": "Patient/patient-1"
-        },
         "status": "active",
         "medicationCodeableConcept": {
           "text": "Panadol"
         },
-        "note": [
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosage": [
           {
-            "text": "As needed"
+            "text": "as needed"
           }
         ]
       }

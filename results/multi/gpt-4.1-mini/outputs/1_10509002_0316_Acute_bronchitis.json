@@ -15,15 +15,11 @@
       "resource": {
         "resourceType": "Condition",
         "id": "condition-1",
-        "text": {
-          "status": "generated",
-          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Acute bronchitis post-upper respiratory tract infection</div>"
+        "subject": {
+          "reference": "Patient/patient-1"
         },
         "code": {
           "text": "Acute bronchitis post-URTI"
-        },
-        "subject": {
-          "reference": "Patient/patient-1"
         },
         "clinicalStatus": {
           "coding": [
@@ -40,15 +36,19 @@
       "resource": {
         "resourceType": "Condition",
         "id": "condition-2",
-        "text": {
-          "status": "generated",
-          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Health anxiety</div>"
+        "subject": {
+          "reference": "Patient/patient-1"
         },
         "code": {
           "text": "Health anxiety"
         },
-        "subject": {
-          "reference": "Patient/patient-1"
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
         }
       }
     },
@@ -129,14 +129,14 @@
         "id": "observation-4",
         "status": "final",
         "code": {
-          "text": "Body temperature"
+          "text": "Temperature"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
         "valueQuantity": {
           "value": 36.9,
-          "unit": "°C"
+          "unit": "degrees Celsius"
         }
       }
     },
@@ -172,7 +172,9 @@
         },
         "valueQuantity": {
           "value": 24,
-          "unit": "kg/m2"
+          "unit": "kg/m2",
+          "system": "http://unitsofmeasure.org",
+          "code": "kg/m2"
         }
       }
     },
@@ -188,7 +190,7 @@
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "Dry progressing to mildly productive yellow sputum, duration 5-6 days"
+        "valueString": "5–6 days duration, dry progressing to mildly productive yellow sputum"
       }
     },
     {
@@ -198,12 +200,12 @@
         "id": "observation-8",
         "status": "final",
         "code": {
-          "text": "Chest examination findings"
+          "text": "Chest tightness and tenderness"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "Chest wall tenderness sternally on palpation and coughing, expiratory wheeze diffuse, coarse inspiratory crackles clearing with cough"
+        "valueString": "Present, from coughing"
       }
     },
     {
@@ -213,25 +215,267 @@
         "id": "observation-9",
         "status": "final",
         "code": {
-          "text": "Respiratory symptoms"
+          "text": "Nocturnal wheeze"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "component": [
-          {
-            "code": {
-              "text": "Intermittent nocturnal wheeze"
-            },
-            "valueBoolean": true
-          },
-          {
-            "code": {
-              "text": "Mild dyspnoea on exertion uphill"
-            },
-            "valueBoolean": true
-          }
-        ]
+        "valueString": "Intermittent"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "status": "final",
+        "code": {
+          "text": "Dyspnea on exertion"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Mild, occurs uphill"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-11",
+        "status": "final",
+        "code": {
+          "text": "Pleuritic pain"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Absent"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-12",
+        "status": "final",
+        "code": {
+          "text": "Hemoptysis"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Absent"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "status": "final",
+        "code": {
+          "text": "Weight loss"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Absent"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-14",
+        "status": "final",
+        "code": {
+          "text": "Rigors"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Absent"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-15",
+        "status": "final",
+        "code": {
+          "text": "Documented fever"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Absent"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-16",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-16",
+        "status": "final",
+        "code": {
+          "text": "Nasal congestion"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Mild"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-17",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-17",
+        "status": "final",
+        "code": {
+          "text": "Pharyngeal erythema"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Mild"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-18",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-18",
+        "status": "final",
+        "code": {
+          "text": "Pharyngeal exudate"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Absent"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-19",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-19",
+        "status": "final",
+        "code": {
+          "text": "Chest wall tenderness"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Tenderness over sternum on palpation and coughing"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-20",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-20",
+        "status": "final",
+        "code": {
+          "text": "Expiratory wheeze"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Diffuse"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-21",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-21",
+        "status": "final",
+        "code": {
+          "text": "Inspiratory crackles"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Coarse, clearing with cough"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-22",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-22",
+        "status": "final",
+        "code": {
+          "text": "Focal crepitations"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "None"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-23",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-23",
+        "status": "final",
+        "code": {
+          "text": "Bronchial breath sounds"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "None"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-24",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-24",
+        "status": "final",
+        "code": {
+          "text": "Air entry"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Good bilaterally"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-25",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-25",
+        "status": "final",
+        "code": {
+          "text": "Heart sounds"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Dual heart sounds, no murmur"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-26",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-26",
+        "status": "final",
+        "code": {
+          "text": "Peripheral edema"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Absent"
       }
     },
     {
@@ -239,17 +483,41 @@
       "resource": {
         "resourceType": "MedicationRequest",
         "id": "medication-request-1",
-        "subject": {
-          "reference": "Patient/patient-1"
-        },
         "status": "active",
         "intent": "order",
         "medicationCodeableConcept": {
           "text": "Paracetamol"
         },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
         "dosageInstruction": [
           {
-            "text": "500–1000 mg PO every 4–6 hours as needed, maximum 4 g per 24 hours"
+            "text": "500–1000 mg PO q4–6h PRN (max 4 g/24h)",
+            "route": {
+              "text": "oral"
+            },
+            "asNeededBoolean": true,
+            "timing": {
+              "repeat": {
+                "frequency": 4,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 500,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Paracetamol 500-1000 mg PO every 4-6 hours as needed; max 4 g per 24 hours."
           }
         ]
       }
@@ -259,17 +527,34 @@
       "resource": {
         "resourceType": "MedicationRequest",
         "id": "medication-request-2",
-        "subject": {
-          "reference": "Patient/patient-1"
-        },
         "status": "active",
         "intent": "order",
         "medicationCodeableConcept": {
           "text": "Ibuprofen"
         },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
         "dosageInstruction": [
           {
-            "text": "200–400 mg PO three times daily as needed with food, short term"
+            "text": "200–400 mg PO TDS PRN with food if needed, short term",
+            "route": {
+              "text": "oral"
+            },
+            "asNeededBoolean": true,
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 200,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Ibuprofen 200-400 mg orally three times daily as needed with food, short term."
           }
         ]
       }

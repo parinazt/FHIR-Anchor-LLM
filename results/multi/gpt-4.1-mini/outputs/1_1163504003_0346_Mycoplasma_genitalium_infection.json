@@ -15,6 +15,9 @@
       "resource": {
         "resourceType": "Condition",
         "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
         "clinicalStatus": {
           "coding": [
             {
@@ -24,10 +27,7 @@
           ]
         },
         "code": {
-          "text": "Subacute dry cough, likely post viral URTI"
-        },
-        "subject": {
-          "reference": "Patient/patient-1"
+          "text": "Subacute dry cough likely post viral URTI"
         }
       }
     },
@@ -36,6 +36,9 @@
       "resource": {
         "resourceType": "Condition",
         "id": "condition-2",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
         "clinicalStatus": {
           "coding": [
             {
@@ -45,10 +48,7 @@
           ]
         },
         "code": {
-          "text": "Mycoplasma genitalium cervicitis/urethritis"
-        },
-        "subject": {
-          "reference": "Patient/patient-1"
+          "text": "Symptomatic Mycoplasma genitalium cervicitis/urethritis"
         }
       }
     },
@@ -59,12 +59,31 @@
         "id": "observation-1",
         "status": "final",
         "code": {
-          "text": "Cough description"
+          "text": "Blood pressure"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "Dry cough approximately 10 days duration, worse at night and with talking at work in hospitality"
+        "component": [
+          {
+            "code": {
+              "text": "Systolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 112,
+              "unit": "mmHg"
+            }
+          },
+          {
+            "code": {
+              "text": "Diastolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 70,
+              "unit": "mmHg"
+            }
+          }
+        ]
       }
     },
     {
@@ -74,12 +93,15 @@
         "id": "observation-2",
         "status": "final",
         "code": {
-          "text": "Shortness of breath"
+          "text": "Heart rate"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueBoolean": false
+        "valueQuantity": {
+          "value": 78,
+          "unit": "beats/minute"
+        }
       }
     },
     {
@@ -89,12 +111,15 @@
         "id": "observation-3",
         "status": "final",
         "code": {
-          "text": "Chest pain"
+          "text": "Respiratory rate"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueBoolean": false
+        "valueQuantity": {
+          "value": 14,
+          "unit": "breaths/minute"
+        }
       }
     },
     {
@@ -104,12 +129,15 @@
         "id": "observation-4",
         "status": "final",
         "code": {
-          "text": "Wheeze"
+          "text": "Body temperature"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueBoolean": false
+        "valueQuantity": {
+          "value": 36.8,
+          "unit": "°C"
+        }
       }
     },
     {
@@ -119,12 +147,15 @@
         "id": "observation-5",
         "status": "final",
         "code": {
-          "text": "Haemoptysis"
+          "text": "Oxygen saturation"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueBoolean": false
+        "valueQuantity": {
+          "value": 99,
+          "unit": "%"
+        }
       }
     },
     {
@@ -134,12 +165,12 @@
         "id": "observation-6",
         "status": "final",
         "code": {
-          "text": "Fever"
+          "text": "Cough"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueBoolean": false
+        "valueString": "Dry cough approximately 10 days, worse at night and with talking at work"
       }
     },
     {
@@ -149,12 +180,12 @@
         "id": "observation-7",
         "status": "final",
         "code": {
-          "text": "Rigors"
+          "text": "Shortness of breath"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueBoolean": false
+        "valueString": "Patient denies shortness of breath"
       }
     },
     {
@@ -164,12 +195,12 @@
         "id": "observation-8",
         "status": "final",
         "code": {
-          "text": "Myalgia"
+          "text": "Chest pain"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueBoolean": false
+        "valueString": "Patient denies chest pain"
       }
     },
     {
@@ -179,12 +210,12 @@
         "id": "observation-9",
         "status": "final",
         "code": {
-          "text": "Sore throat"
+          "text": "Wheeze"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "Mild sore throat early, now settled"
+        "valueString": "Patient denies wheeze"
       }
     },
     {
@@ -194,12 +225,12 @@
         "id": "observation-10",
         "status": "final",
         "code": {
-          "text": "Appetite"
+          "text": "Haemoptysis"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "Appetite okay"
+        "valueString": "Patient denies haemoptysis"
       }
     },
     {
@@ -209,12 +240,12 @@
         "id": "observation-11",
         "status": "final",
         "code": {
-          "text": "Energy level"
+          "text": "Fever"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "Slightly decreased energy but still working full shifts"
+        "valueString": "Patient denies fever"
       }
     },
     {
@@ -224,12 +255,12 @@
         "id": "observation-12",
         "status": "final",
         "code": {
-          "text": "Exposure to sick contacts"
+          "text": "Rigors"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "No known sick contacts, but exposure to coughing customers"
+        "valueString": "Patient denies rigors"
       }
     },
     {
@@ -239,12 +270,12 @@
         "id": "observation-13",
         "status": "final",
         "code": {
-          "text": "Smoker status"
+          "text": "Myalgia"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "Never smoker"
+        "valueString": "Patient denies myalgia"
       }
     },
     {
@@ -254,12 +285,12 @@
         "id": "observation-14",
         "status": "final",
         "code": {
-          "text": "Asthma or COPD"
+          "text": "Sore throat"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueBoolean": false
+        "valueString": "Mild sore throat early in course, now settled"
       }
     },
     {
@@ -269,12 +300,12 @@
         "id": "observation-15",
         "status": "final",
         "code": {
-          "text": "Travel history"
+          "text": "Appetite"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueBoolean": false
+        "valueString": "Appetite is okay"
       }
     },
     {
@@ -284,12 +315,12 @@
         "id": "observation-16",
         "status": "final",
         "code": {
-          "text": "Potential irritant exposure"
+          "text": "Energy level"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "Possible air conditioning and exposure to new cleaning chemicals at work"
+        "valueString": "Energy level slightly decreased but still working full shifts"
       }
     },
     {
@@ -299,12 +330,12 @@
         "id": "observation-17",
         "status": "final",
         "code": {
-          "text": "Genital symptoms"
+          "text": "Vaginal discharge"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "Mild urethral irritation and increased thin vaginal discharge"
+        "valueString": "Increased thin vaginal discharge"
       }
     },
     {
@@ -314,12 +345,12 @@
         "id": "observation-18",
         "status": "final",
         "code": {
-          "text": "Pelvic pain"
+          "text": "Urethral irritation"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueBoolean": false
+        "valueString": "Mild urethral irritation present"
       }
     },
     {
@@ -329,12 +360,12 @@
         "id": "observation-19",
         "status": "final",
         "code": {
-          "text": "Dyspareunia"
+          "text": "Pelvic pain"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueBoolean": false
+        "valueString": "Patient denies pelvic pain"
       }
     },
     {
@@ -344,12 +375,12 @@
         "id": "observation-20",
         "status": "final",
         "code": {
-          "text": "Post coital bleeding"
+          "text": "Dyspareunia"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueBoolean": false
+        "valueString": "Patient denies deep dyspareunia"
       }
     },
     {
@@ -359,12 +390,12 @@
         "id": "observation-21",
         "status": "final",
         "code": {
-          "text": "Fever"
+          "text": "Post coital bleeding"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueBoolean": false
+        "valueString": "Patient denies post coital bleeding"
       }
     },
     {
@@ -374,12 +405,12 @@
         "id": "observation-22",
         "status": "final",
         "code": {
-          "text": "Nausea or vomiting"
+          "text": "Fever"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueBoolean": false
+        "valueString": "Patient denies fever"
       }
     },
     {
@@ -389,12 +420,12 @@
         "id": "observation-23",
         "status": "final",
         "code": {
-          "text": "Abdominal pain"
+          "text": "Nausea and vomiting"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueBoolean": false
+        "valueString": "Patient denies nausea and vomiting"
       }
     },
     {
@@ -404,12 +435,12 @@
         "id": "observation-24",
         "status": "final",
         "code": {
-          "text": "Rectal symptoms"
+          "text": "Abdominal pain"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueBoolean": false
+        "valueString": "Patient denies abdominal pain"
       }
     },
     {
@@ -419,12 +450,12 @@
         "id": "observation-25",
         "status": "final",
         "code": {
-          "text": "Menstrual status"
+          "text": "Rectal symptoms"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "On COCP, regular 28-30 day cycles, last menstrual period 10 days ago"
+        "valueString": "Patient denies rectal symptoms"
       }
     },
     {
@@ -434,12 +465,12 @@
         "id": "observation-26",
         "status": "final",
         "code": {
-          "text": "Pregnancy intention"
+          "text": "Pleural chest pain"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "Not trying to conceive, would like children in few years"
+        "valueString": "Patient denies pleuritic chest pain"
       }
     },
     {
@@ -449,12 +480,12 @@
         "id": "observation-27",
         "status": "final",
         "code": {
-          "text": "Red flag symptoms"
+          "text": "Night sweats"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "No pleuritic chest pain, no night sweats, no weight loss, no tuberculosis contacts, no vaginal bleeding, no abdominal tenderness, no systemic unwellness"
+        "valueString": "Patient denies night sweats"
       }
     },
     {
@@ -464,12 +495,12 @@
         "id": "observation-28",
         "status": "final",
         "code": {
-          "text": "Medication"
+          "text": "Weight loss"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "COCP (ethinylestradiol/levonorgestrel), stable"
+        "valueString": "Patient denies weight loss"
       }
     },
     {
@@ -479,12 +510,12 @@
         "id": "observation-29",
         "status": "final",
         "code": {
-          "text": "Allergies"
+          "text": "Tuberculosis contacts"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "No known drug allergies"
+        "valueString": "Patient denies tuberculosis contacts"
       }
     },
     {
@@ -494,63 +525,12 @@
         "id": "observation-30",
         "status": "final",
         "code": {
-          "text": "Vital signs"
+          "text": "Vaginal bleeding"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "component": [
-          {
-            "code": {
-              "text": "Blood pressure"
-            },
-            "valueString": "112/70 mmHg"
-          },
-          {
-            "code": {
-              "text": "Heart rate"
-            },
-            "valueQuantity": {
-              "value": 78,
-              "unit": "beats/min",
-              "system": "http://unitsofmeasure.org",
-              "code": "beats/min"
-            }
-          },
-          {
-            "code": {
-              "text": "Respiratory rate"
-            },
-            "valueQuantity": {
-              "value": 14,
-              "unit": "breaths/min",
-              "system": "http://unitsofmeasure.org",
-              "code": "breaths/min"
-            }
-          },
-          {
-            "code": {
-              "text": "Temperature"
-            },
-            "valueQuantity": {
-              "value": 36.8,
-              "unit": "degrees Celsius",
-              "system": "http://unitsofmeasure.org",
-              "code": "Cel"
-            }
-          },
-          {
-            "code": {
-              "text": "Oxygen saturation"
-            },
-            "valueQuantity": {
-              "value": 99,
-              "unit": "%",
-              "system": "http://unitsofmeasure.org",
-              "code": "%"
-            }
-          }
-        ]
+        "valueString": "Patient denies vaginal bleeding"
       }
     },
     {
@@ -560,12 +540,12 @@
         "id": "observation-31",
         "status": "final",
         "code": {
-          "text": "General appearance"
+          "text": "Abdominal tenderness"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "Well looking, alert, able to talk in full sentences with occasional dry cough"
+        "valueString": "No abdominal tenderness"
       }
     },
     {
@@ -575,72 +555,31 @@
         "id": "observation-32",
         "status": "final",
         "code": {
-          "text": "Throat examination"
+          "text": "Systemic unwellness"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "Mildly erythematous throat, no exudate, no tonsillar enlargement"
+        "valueString": "Patient denies systemic unwellness"
       }
     },
     {
-      "fullUrl": "https://example.org/fhir/Observation/observation-33",
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-1",
       "resource": {
-        "resourceType": "Observation",
-        "id": "observation-33",
-        "status": "final",
-        "code": {
-          "text": "Nasal mucosa"
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-1",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Combined oral contraceptive pill (ethinylestradiol/levonorgestrel)"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "Mildly congested"
-      }
-    },
-    {
-      "fullUrl": "https://example.org/fhir/Observation/observation-34",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "observation-34",
-        "status": "final",
-        "code": {
-          "text": "Chest auscultation"
-        },
-        "subject": {
-          "reference": "Patient/patient-1"
-        },
-        "valueString": "Good air entry bilaterally, no wheeze, no crackles"
-      }
-    },
-    {
-      "fullUrl": "https://example.org/fhir/Observation/observation-35",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "observation-35",
-        "status": "final",
-        "code": {
-          "text": "Cardiovascular system"
-        },
-        "subject": {
-          "reference": "Patient/patient-1"
-        },
-        "valueString": "Heart sounds dual, no murmur"
-      }
-    },
-    {
-      "fullUrl": "https://example.org/fhir/Observation/observation-36",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "observation-36",
-        "status": "final",
-        "code": {
-          "text": "Abdomen examination"
-        },
-        "subject": {
-          "reference": "Patient/patient-1"
-        },
-        "valueString": "Soft, non-tender"
+        "dosage": [
+          {
+            "text": "regular 28–30 day cycles"
+          }
+        ]
       }
     },
     {
@@ -648,38 +587,37 @@
       "resource": {
         "resourceType": "MedicationRequest",
         "id": "medication-request-1",
-        "subject": {
-          "reference": "Patient/patient-1"
-        },
-        "intent": "order",
         "status": "active",
+        "intent": "order",
         "medicationCodeableConcept": {
           "text": "Doxycycline"
         },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
         "dosageInstruction": [
           {
-            "sequence": 1,
-            "text": "100mg PO twice daily for 7 days",
+            "text": "100 mg orally twice daily for 7 days",
+            "route": {
+              "text": "oral"
+            },
             "timing": {
               "repeat": {
                 "frequency": 2,
                 "period": 1,
-                "periodUnit": "d"
+                "periodUnit": "d",
+                "duration": 7,
+                "durationUnit": "d"
               }
             },
             "doseAndRate": [
               {
                 "doseQuantity": {
                   "value": 100,
-                  "unit": "mg",
-                  "system": "http://unitsofmeasure.org",
-                  "code": "mg"
+                  "unit": "mg"
                 }
               }
-            ],
-            "route": {
-              "text": "oral"
-            }
+            ]
           }
         ]
       }
@@ -689,38 +627,37 @@
       "resource": {
         "resourceType": "MedicationRequest",
         "id": "medication-request-2",
-        "subject": {
-          "reference": "Patient/patient-1"
-        },
-        "intent": "order",
         "status": "active",
+        "intent": "order",
         "medicationCodeableConcept": {
           "text": "Moxifloxacin"
         },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
         "dosageInstruction": [
           {
-            "sequence": 2,
-            "text": "400mg PO daily for 7 days after completion of doxycycline course",
+            "text": "400 mg orally once daily for 7 days immediately after doxycycline course",
+            "route": {
+              "text": "oral"
+            },
             "timing": {
               "repeat": {
                 "frequency": 1,
                 "period": 1,
-                "periodUnit": "d"
+                "periodUnit": "d",
+                "duration": 7,
+                "durationUnit": "d"
               }
             },
             "doseAndRate": [
               {
                 "doseQuantity": {
                   "value": 400,
-                  "unit": "mg",
-                  "system": "http://unitsofmeasure.org",
-                  "code": "mg"
+                  "unit": "mg"
                 }
               }
-            ],
-            "route": {
-              "text": "oral"
-            }
+            ]
           }
         ]
       }

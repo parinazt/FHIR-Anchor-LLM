@@ -15,20 +15,19 @@
       "resource": {
         "resourceType": "Condition",
         "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
         "clinicalStatus": {
           "coding": [
             {
               "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
-              "code": "active",
-              "display": "Active"
+              "code": "active"
             }
           ]
         },
         "code": {
           "text": "Chronic exertional compartment syndrome left lower leg"
-        },
-        "subject": {
-          "reference": "Patient/patient-1"
         }
       }
     },
@@ -47,7 +46,7 @@
         "component": [
           {
             "code": {
-              "text": "Systolic"
+              "text": "Systolic blood pressure"
             },
             "valueQuantity": {
               "value": 118,
@@ -56,7 +55,7 @@
           },
           {
             "code": {
-              "text": "Diastolic"
+              "text": "Diastolic blood pressure"
             },
             "valueQuantity": {
               "value": 72,
@@ -109,17 +108,14 @@
         "id": "observation-4",
         "status": "final",
         "code": {
-          "text": "Temperature"
+          "text": "Oxygen saturation"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "dataAbsentReason": {
-          "coding": [
-            {
-              "code": "not-done"
-            }
-          ]
+        "valueQuantity": {
+          "value": 99,
+          "unit": "%"
         }
       }
     },
@@ -130,20 +126,12 @@
         "id": "observation-5",
         "status": "final",
         "code": {
-          "text": "Oxygen saturation"
+          "text": "Left lower leg pain symptoms"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueQuantity": {
-          "value": 99,
-          "unit": "%"
-        },
-        "interpretation": [
-          {
-            "text": "Room air"
-          }
-        ]
+        "valueString": "Chronic exertional compartment syndrome of left lower leg causing tightness 'like going to explode' after 20-30 minutes fast walking, heavy work, or stairs; settles after ~15 minutes rest with leg elevation; no pain at rest currently, a bit tight after busy week; denies numbness, weakness, colour change, fever, trauma, redness, or wounds; no features of acute compartment syndrome currently"
       }
     },
     {
@@ -153,137 +141,12 @@
         "id": "observation-6",
         "status": "final",
         "code": {
-          "text": "L lower leg tenderness"
+          "text": "Left lower leg physical examination findings"
         },
         "subject": {
           "reference": "Patient/patient-1"
         },
-        "valueString": "mild over anterior tibial area"
-      }
-    },
-    {
-      "fullUrl": "https://example.org/fhir/Observation/observation-7",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "observation-7",
-        "status": "final",
-        "code": {
-          "text": "L lower leg compartments"
-        },
-        "subject": {
-          "reference": "Patient/patient-1"
-        },
-        "valueString": "soft at rest"
-      }
-    },
-    {
-      "fullUrl": "https://example.org/fhir/Observation/observation-8",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "observation-8",
-        "status": "final",
-        "code": {
-          "text": "L ankle range of motion"
-        },
-        "subject": {
-          "reference": "Patient/patient-1"
-        },
-        "valueString": "full"
-      }
-    },
-    {
-      "fullUrl": "https://example.org/fhir/Observation/observation-9",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "observation-9",
-        "status": "final",
-        "code": {
-          "text": "L toe range of motion"
-        },
-        "subject": {
-          "reference": "Patient/patient-1"
-        },
-        "valueString": "full"
-      }
-    },
-    {
-      "fullUrl": "https://example.org/fhir/Observation/observation-10",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "observation-10",
-        "status": "final",
-        "code": {
-          "text": "L lower leg muscle power"
-        },
-        "subject": {
-          "reference": "Patient/patient-1"
-        },
-        "valueCodeableConcept": {
-          "text": "5/5"
-        }
-      }
-    },
-    {
-      "fullUrl": "https://example.org/fhir/Observation/observation-11",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "observation-11",
-        "status": "final",
-        "code": {
-          "text": "L lower leg sensation"
-        },
-        "subject": {
-          "reference": "Patient/patient-1"
-        },
-        "valueString": "intact"
-      }
-    },
-    {
-      "fullUrl": "https://example.org/fhir/Observation/observation-12",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "observation-12",
-        "status": "final",
-        "code": {
-          "text": "Dorsalis pedis pulses L lower leg"
-        },
-        "subject": {
-          "reference": "Patient/patient-1"
-        },
-        "valueString": "palpable"
-      }
-    },
-    {
-      "fullUrl": "https://example.org/fhir/Observation/observation-13",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "observation-13",
-        "status": "final",
-        "code": {
-          "text": "Posterior tibial pulses L lower leg"
-        },
-        "subject": {
-          "reference": "Patient/patient-1"
-        },
-        "valueString": "palpable"
-      }
-    },
-    {
-      "fullUrl": "https://example.org/fhir/Observation/observation-14",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "observation-14",
-        "status": "final",
-        "code": {
-          "text": "Capillary refill time"
-        },
-        "subject": {
-          "reference": "Patient/patient-1"
-        },
-        "valueQuantity": {
-          "value": 2,
-          "unit": "seconds"
-        }
+        "valueString": "No obvious swelling, erythema, or deformity at rest; compartments soft; mild tenderness over anterior tibial area only; full ankle and toe range of motion; muscle power 5/5; sensation intact; dorsalis pedis and posterior tibial pulses palpable; capillary refill time less than 2 seconds; neuro exam grossly non-focal"
       }
     },
     {
@@ -291,17 +154,51 @@
       "resource": {
         "resourceType": "MedicationRequest",
         "id": "medication-request-1",
-        "subject": {
-          "reference": "Patient/patient-1"
-        },
         "status": "active",
         "intent": "order",
         "medicationCodeableConcept": {
-          "text": "Paracetamol 500 mg tabs"
+          "text": "Paracetamol"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
         },
         "dosageInstruction": [
           {
-            "text": "Take 2 tabs (1 g) up to QID PRN pain, max 8/day"
+            "text": "Take 2 tabs (1 g) up to QID PRN pain, max 8/day",
+            "route": {
+              "text": "oral"
+            },
+            "asNeededBoolean": true,
+            "timing": {
+              "repeat": {
+                "frequency": 4,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 1,
+                  "unit": "g"
+                }
+              }
+            ],
+            "maxDosePerPeriod": {
+              "numerator": {
+                "value": 8,
+                "unit": "tabs"
+              },
+              "denominator": {
+                "value": 1,
+                "unit": "day"
+              }
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Quantity 100, 1 repeat"
           }
         ]
       }
@@ -311,17 +208,51 @@
       "resource": {
         "resourceType": "MedicationRequest",
         "id": "medication-request-2",
-        "subject": {
-          "reference": "Patient/patient-1"
-        },
         "status": "active",
         "intent": "order",
         "medicationCodeableConcept": {
-          "text": "Ibuprofen 400 mg tabs"
+          "text": "Ibuprofen"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
         },
         "dosageInstruction": [
           {
-            "text": "1 tab TDS PRN with food, max 1200 mg/day"
+            "text": "1 tab 400 mg TDS PRN with food, max 1200 mg/day",
+            "route": {
+              "text": "oral"
+            },
+            "asNeededBoolean": true,
+            "timing": {
+              "repeat": {
+                "frequency": 3,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 400,
+                  "unit": "mg"
+                }
+              }
+            ],
+            "maxDosePerPeriod": {
+              "numerator": {
+                "value": 1200,
+                "unit": "mg"
+              },
+              "denominator": {
+                "value": 1,
+                "unit": "day"
+              }
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Quantity 30, no repeat. Take with food. NSAID cautions discussed (GI/renal)."
           }
         ]
       }
