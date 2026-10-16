@@ -1,0 +1,590 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "male"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Chronic urinary retention secondary to BPH, with a recent acute retention episode"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "note": [
+          {
+            "text": "Initial history describes urinary retention with possible BPH; the clinician's assessment attributes chronic retention to BPH. Acute retention occurred approximately two weeks before this encounter. IDC remains in situ; clinically stable on an alpha blocker."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-2",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Benign prostatic hyperplasia"
+        },
+        "note": [
+          {
+            "text": "Assessed as the cause of chronic urinary retention; prior CT KUB showed an enlarged prostate."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-3",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-3",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Knee osteoarthritis"
+        },
+        "note": [
+          {
+            "text": "Mentioned in passing and not addressed today. Laterality not stated."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-4",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-4",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "History of COVID-19"
+        },
+        "note": [
+          {
+            "text": "Patient refers to having had COVID previously: 'don't want to end up in hospital with the flu or that COVID again.' Timing and severity of the previous illness are not specified."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Reported inability to pass urine"
+        },
+        "valueString": "Could not pass any urine during the acute retention episode approximately two weeks before this encounter."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Reported catheter drainage and urine appearance"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Catheter drainage"
+            },
+            "valueString": "IDC draining."
+          },
+          {
+            "code": {
+              "text": "Urine appearance"
+            },
+            "valueString": "Clear yellow."
+          },
+          {
+            "code": {
+              "text": "Visible blood in urine"
+            },
+            "valueString": "No visible blood."
+          },
+          {
+            "code": {
+              "text": "Visible urinary debris"
+            },
+            "valueString": "No visible debris."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Estimated daily urine output into catheter bag"
+        },
+        "valueRange": {
+          "low": {
+            "value": 1.5,
+            "unit": "L/day"
+          },
+          "high": {
+            "value": 2,
+            "unit": "L/day"
+          }
+        },
+        "note": [
+          {
+            "text": "Patient has been monitoring output; estimate is 1.5–2 L/day."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Reported urinary-associated pain"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Suprapubic pain"
+            },
+            "valueString": "Denied."
+          },
+          {
+            "code": {
+              "text": "Flank or loin pain"
+            },
+            "valueString": "Denied."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Reported spasms following catheter insertion"
+        },
+        "valueString": "Mild spasms during the first few days, now settled."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Reported systemic symptoms"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Fever"
+            },
+            "valueString": "No fevers or recent fevers."
+          },
+          {
+            "code": {
+              "text": "Rigors"
+            },
+            "valueString": "Denied."
+          },
+          {
+            "code": {
+              "text": "Confusion"
+            },
+            "valueString": "Denied."
+          },
+          {
+            "code": {
+              "text": "General wellbeing"
+            },
+            "valueString": "Feels well."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Reported bowel function"
+        },
+        "valueString": "Bowels okay, stools a bit firmer; no severe constipation."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Reported back and neurological symptoms"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Back pain"
+            },
+            "valueString": "Denied."
+          },
+          {
+            "code": {
+              "text": "Saddle anaesthesia"
+            },
+            "valueString": "Denied."
+          },
+          {
+            "code": {
+              "text": "Leg weakness"
+            },
+            "valueString": "Denied."
+          },
+          {
+            "code": {
+              "text": "Leg numbness"
+            },
+            "valueString": "Denied."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Catheter bag management at home"
+        },
+        "valueString": "Managing the bag well at home, according to his wife."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Video examination findings"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "General appearance"
+            },
+            "valueString": "Looks well."
+          },
+          {
+            "code": {
+              "text": "Speech"
+            },
+            "valueString": "Speaking in full sentences."
+          },
+          {
+            "code": {
+              "text": "Respiratory distress"
+            },
+            "valueString": "No respiratory distress."
+          },
+          {
+            "code": {
+              "text": "Mental status"
+            },
+            "valueString": "Alert, oriented and conversant."
+          }
+        ],
+        "note": [
+          {
+            "text": "Video assessment only; abdominal and genital examination was not possible."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-11",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Creatinine"
+        },
+        "valueQuantity": {
+          "value": 93
+        },
+        "note": [
+          {
+            "text": "Previous ED discharge UEC result in My Health Record. Unit and result date not stated."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-12",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Estimated glomerular filtration rate"
+        },
+        "valueQuantity": {
+          "value": 70
+        },
+        "note": [
+          {
+            "text": "Approximately 70, from previous ED discharge UEC results in My Health Record. Unit and result date not stated."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Previous CT KUB findings"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Prostate"
+            },
+            "valueString": "Enlarged."
+          },
+          {
+            "code": {
+              "text": "Stone"
+            },
+            "valueString": "No stone."
+          },
+          {
+            "code": {
+              "text": "Mass"
+            },
+            "valueString": "No mass."
+          },
+          {
+            "code": {
+              "text": "Hydronephrosis"
+            },
+            "valueString": "No hydronephrosis."
+          }
+        ],
+        "note": [
+          {
+            "text": "Results reviewed from the ED discharge record in My Health Record."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-14",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Indwelling urinary catheter status"
+        },
+        "valueString": "16 Fr Foley IDC in situ, inserted in ED approximately two weeks before this encounter."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-15",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Clinical features of urinary infection, sepsis or obstruction"
+        },
+        "valueString": "Clinician assesses no features of UTI, sepsis or obstruction; clinically stable, asymptomatic, urine clear and systemically well."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-16",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-16",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Vaccination eligibility assessment"
+        },
+        "valueString": "Clinically well with no contraindication to vaccination. Due COVID booster and seasonal influenza vaccine; pneumococcal eligibility uncertain and requires review against the current ATAGI schedule."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-1",
+        "status": "active",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "medicationCodeableConcept": {
+          "text": "Tamsulosin"
+        },
+        "dosage": [
+          {
+            "text": "0.4 mg orally each morning",
+            "route": {
+              "text": "oral"
+            },
+            "timing": {
+              "code": {
+                "text": "Each morning"
+              },
+              "repeat": {
+                "frequency": 1,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 0.4,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Current medication; plan is to continue tamsulosin 0.4 mg mane (PBS)."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-2",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-2",
+        "status": "active",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "medicationCodeableConcept": {
+          "text": "Paracetamol"
+        },
+        "dosage": [
+          {
+            "text": "1 g every 6 hours as needed; rarely used now.",
+            "asNeededBoolean": true,
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 6,
+                "periodUnit": "h"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 1,
+                  "unit": "g"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

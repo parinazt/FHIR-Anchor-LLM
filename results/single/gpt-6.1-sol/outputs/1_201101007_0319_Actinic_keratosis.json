@@ -1,0 +1,648 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "male"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Moderate depressive episode"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "note": [
+          {
+            "text": "New episode; likely multifactorial, with loss of licence/independence, isolation and chronic health concerns. Passive death thoughts only; no active suicidal ideation or plan."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-2",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Multiple actinic keratoses of scalp and face with field change solar damage"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "bodySite": [
+          {
+            "text": "Scalp"
+          },
+          {
+            "text": "Face"
+          }
+        ],
+        "note": [
+          {
+            "text": "Patient reports longstanding sunspots and sun exposure. Examination was limited to face and scalp; not a full skin check."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-3",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-3",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Mild alcohol use, possibly contributing to mood and sleep"
+        },
+        "note": [
+          {
+            "text": "Clinician assessment: mild ETOH use; may be contributing to mood/sleep."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Reported low mood"
+        },
+        "valueString": "Feeling really low and down in the dumps for approximately 2–3 months."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Motivation and interest"
+        },
+        "valueString": "Decreased motivation and decreased interest in gardening and RSL."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Sleep symptoms"
+        },
+        "valueString": "Early morning waking at 0400–0500; no problems getting off to sleep."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Appetite"
+        },
+        "valueString": "Decreased appetite."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Reported possible weight loss"
+        },
+        "valueString": "Possible 2–3 kg weight loss, per patient."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Energy"
+        },
+        "valueString": "Low energy."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Reported concentration difficulty"
+        },
+        "valueString": "Poor concentration; reports keep losing my train of thought."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Previous mental health history"
+        },
+        "valueString": "No previous diagnosis or treatment of depression or anxiety."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Psychosocial circumstances"
+        },
+        "valueString": "No recent bereavement. Stopped driving after a minor bingle; feels useless and is more housebound."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Alcohol consumption"
+        },
+        "valueString": "Approximately 2–3 beers most nights, more on some weekends."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-11",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Illicit substance use"
+        },
+        "valueString": "No illicit substance use reported."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-12",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Suicidality and passive death thoughts"
+        },
+        "valueString": "Some passive thoughts that it wouldn't matter if he didn't wake up. Denies active suicidal ideation or plan. Says he wouldn't do anything silly and cites his grandchildren as a protective factor. MSE records passive death thoughts only, with no active suicidal ideation or plan."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Reported scalp and facial skin lesions"
+        },
+        "valueString": "Longstanding rough scaly spots on scalp and temples, mildly itchy; no bleeding, ulceration or rapid change. Long history of sun exposure."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-14",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Personal melanoma history"
+        },
+        "valueString": "No known history of melanoma."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-15",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Reported regular medication use"
+        },
+        "valueString": "No regular medications reported; to be confirmed from records."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-16",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-16",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Blood pressure"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Systolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 132
+            }
+          },
+          {
+            "code": {
+              "text": "Diastolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 76
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-17",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-17",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Heart rate"
+        },
+        "valueQuantity": {
+          "value": 74
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Rhythm"
+            },
+            "valueString": "Regular."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-18",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-18",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Respiratory rate"
+        },
+        "valueQuantity": {
+          "value": 14
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-19",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-19",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Temperature"
+        },
+        "valueQuantity": {
+          "value": 36.6
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-20",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-20",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Oxygen saturation"
+        },
+        "valueQuantity": {
+          "value": 98,
+          "unit": "%"
+        },
+        "note": [
+          {
+            "text": "On room air."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-21",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-21",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "General appearance"
+        },
+        "valueString": "Looks well; no acute distress."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-22",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-22",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Mental state examination"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Appearance and grooming"
+            },
+            "valueString": "Neatly dressed; good grooming."
+          },
+          {
+            "code": {
+              "text": "Behaviour"
+            },
+            "valueString": "Mildly impatient and very directive about management, pushing for specific medications and investigations."
+          },
+          {
+            "code": {
+              "text": "Speech"
+            },
+            "valueString": "Normal."
+          },
+          {
+            "code": {
+              "text": "Mood"
+            },
+            "valueString": "Flat/over it."
+          },
+          {
+            "code": {
+              "text": "Affect"
+            },
+            "valueString": "Mildly constricted but reactive."
+          },
+          {
+            "code": {
+              "text": "Thought process"
+            },
+            "valueString": "Linear."
+          },
+          {
+            "code": {
+              "text": "Psychosis"
+            },
+            "valueString": "No psychosis."
+          },
+          {
+            "code": {
+              "text": "Cognition and orientation"
+            },
+            "valueString": "Cognition grossly intact; orientated."
+          },
+          {
+            "code": {
+              "text": "Insight and judgement"
+            },
+            "valueString": "Fair."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-23",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-23",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Focal signs and red flags"
+        },
+        "valueString": "No focal signs or red flags, as documented in discussion of requested brain imaging."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-24",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-24",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Scalp and facial skin examination"
+        },
+        "valueString": "Multiple erythematous rough scaly macules/papules, 3–8 mm, over vertex scalp, frontal scalp, temples and upper forehead, consistent with actinic keratoses. No obvious ulceration, induration or horn lesions. Background marked solar damage.",
+        "note": [
+          {
+            "text": "Brief examination of face and scalp only; not a full skin check because of time constraints."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-25",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-25",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "PHQ-9 total score"
+        },
+        "valueInteger": 14,
+        "interpretation": [
+          {
+            "text": "Moderate depression"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medication-request-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medication-request-1",
+        "status": "active",
+        "intent": "order",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "medicationCodeableConcept": {
+          "text": "Sertraline"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-1"
+          }
+        ],
+        "dosageInstruction": [
+          {
+            "sequence": 1,
+            "text": "Start 25 mg every morning for 1 week.",
+            "timing": {
+              "repeat": {
+                "boundsDuration": {
+                  "value": 1,
+                  "unit": "week",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "wk"
+                },
+                "frequency": 1,
+                "period": 1,
+                "periodUnit": "d",
+                "when": [
+                  "MORN"
+                ]
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 25,
+                  "unit": "mg"
+                }
+              }
+            ]
+          },
+          {
+            "sequence": 2,
+            "text": "After 1 week, increase to 50 mg every morning if tolerated.",
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 1,
+                "periodUnit": "d",
+                "when": [
+                  "MORN"
+                ]
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 50,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "PBS. Side effects discussed: gastrointestinal effects, sleep effects, transient increased anxiety and sexual effects. Written information provided."
+          }
+        ]
+      }
+    }
+  ]
+}

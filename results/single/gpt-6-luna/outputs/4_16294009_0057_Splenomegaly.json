@@ -1,0 +1,388 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "male"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "HFE haemochromatosis, C282Y homozygote"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-2",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "code": {
+          "text": "Splenomegaly"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-3",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-3",
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional"
+            }
+          ]
+        },
+        "code": {
+          "text": "Possible chronic liver disease (haemochromatosis ± metabolic/fatty liver)"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "code": {
+          "text": "Tiredness"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "A bit tired; patient thinks it is probably due to work or age. Still working full time as an accountant with long hours."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "code": {
+          "text": "Left upper quadrant discomfort"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Mild discomfort under the left ribs for months, worse with twisting or large meals, and stable. No significant abdominal pain. Clinician considers it likely related to the enlarged spleen; patient may under-report symptoms."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "code": {
+          "text": "Dyspnoea on exertion"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Mild shortness of breath on stairs, longstanding."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "code": {
+          "text": "Reported symptoms and review of systems"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No nausea or vomiting, bowel changes, PR bleeding or melaena, jaundice, pruritus, fever, night sweats, or infection. Weight stable. No easy bleeding; minor bruises only with trauma."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "code": {
+          "text": "Telephone consultation observations"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Sounded well, spoke in full sentences with no audible shortness of breath, and was cognitively intact."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "code": {
+          "text": "Full blood count"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Haemoglobin"
+            },
+            "valueQuantity": {
+              "value": 140
+            }
+          },
+          {
+            "code": {
+              "text": "White blood cell count"
+            },
+            "valueQuantity": {
+              "value": 5.2
+            }
+          },
+          {
+            "code": {
+              "text": "Platelet count"
+            },
+            "valueQuantity": {
+              "value": 145
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Platelet count described as low-normal and stable compared with 150–160 last year."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "code": {
+          "text": "Iron studies"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Ferritin"
+            },
+            "valueQuantity": {
+              "value": 120
+            }
+          },
+          {
+            "code": {
+              "text": "Transferrin saturation"
+            },
+            "valueQuantity": {
+              "value": 42
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Ferritin is on target for maintenance; previous ferritin was approximately 100–150."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "status": "final",
+        "code": {
+          "text": "Liver function tests"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "ALT"
+            },
+            "valueQuantity": {
+              "value": 42
+            }
+          },
+          {
+            "code": {
+              "text": "AST"
+            },
+            "valueQuantity": {
+              "value": 35
+            }
+          },
+          {
+            "code": {
+              "text": "ALP"
+            },
+            "valueQuantity": {
+              "value": 110
+            }
+          },
+          {
+            "code": {
+              "text": "GGT"
+            },
+            "valueQuantity": {
+              "value": 55
+            }
+          },
+          {
+            "code": {
+              "text": "Bilirubin"
+            },
+            "valueQuantity": {
+              "value": 12
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "ALT slightly elevated, previously 38 at the last check. AST, ALP, and bilirubin described as normal. GGT slightly elevated and similar to prior."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "status": "final",
+        "code": {
+          "text": "Fasting blood glucose"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 5.6
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "status": "final",
+        "code": {
+          "text": "Liver ultrasound"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Increased liver echogenicity consistent with fatty change/chronic liver disease. No focal liver lesions. Portal vein patent."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-11",
+        "status": "final",
+        "code": {
+          "text": "Spleen length on abdominal ultrasound"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 15.5,
+          "unit": "cm"
+        },
+        "note": [
+          {
+            "text": "Previously 14.8 cm approximately 12 months ago; described as a mild increase in size."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-12",
+        "status": "final",
+        "code": {
+          "text": "Spleen ultrasound appearance"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Homogeneous, with no focal lesions."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "status": "final",
+        "code": {
+          "text": "Other abdominal ultrasound findings"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No ascites. Gallbladder and biliary system normal."
+      }
+    }
+  ]
+}

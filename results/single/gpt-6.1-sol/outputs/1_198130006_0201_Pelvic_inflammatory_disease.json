@@ -1,0 +1,871 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "female"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Pelvic inflammatory disease"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "onsetString": "Diagnosed approximately 3 weeks before this encounter, following 1 week of lower abdominal pain and vaginal discharge",
+        "note": [
+          {
+            "text": "Improving, non-severe and afebrile, with mild residual pelvic pain. Assessed as likely polymicrobial, with Mycoplasma genitalium and BV initially."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-2",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Mycoplasma genitalium infection"
+        },
+        "note": [
+          {
+            "text": "Detected on prior vaginal NAAT shown in a photograph. Concern for persistence after the standard PID regimen; no prior test of cure. Clinician assesses a need for targeted therapy and test of cure."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-3",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-3",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "History of recurrent bacterial vaginosis"
+        },
+        "note": [
+          {
+            "text": "Two episodes this year; BV flora on prior vaginal results. Currently mild discharge only, with no strong signs of BV today."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "code": {
+          "text": "Pelvic pain"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Pain much improved; mild intermittent dull suprapubic/lower pelvic ache, worse after long shifts standing at hospitality work. No sharp pain."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "code": {
+          "text": "Vaginal discharge"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Decreased; now mild, thin and off-white, without malodour."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "code": {
+          "text": "Constitutional symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Denies fever, rigors, sweats and weight loss."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "code": {
+          "text": "Gastrointestinal symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No current nausea or vomiting. Bowels normal; no diarrhoea, constipation or right upper quadrant pain."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "code": {
+          "text": "Dizziness"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Denied."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "code": {
+          "text": "Urinary symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No dysuria."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "code": {
+          "text": "Vaginal bleeding and dyspareunia"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No vaginal bleeding, intermenstrual bleeding, postcoital bleeding or dyspareunia; currently abstinent."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "status": "final",
+        "code": {
+          "text": "Last menstrual period"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Approximately 10 days before this encounter; normal."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "status": "final",
+        "code": {
+          "text": "Patient-reported pregnancy status"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient denies pregnancy; no pregnancy test result documented."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "status": "final",
+        "code": {
+          "text": "Prior vaginal laboratory results"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Mycoplasma genitalium NAAT"
+            },
+            "valueString": "Detected."
+          },
+          {
+            "code": {
+              "text": "BV flora"
+            },
+            "valueString": "Present on prior vaginal results."
+          },
+          {
+            "code": {
+              "text": "Chlamydia trachomatis NAAT"
+            },
+            "valueString": "Not detected."
+          },
+          {
+            "code": {
+              "text": "Neisseria gonorrhoeae NAAT"
+            },
+            "valueString": "Not detected."
+          }
+        ],
+        "note": [
+          {
+            "text": "Results viewed in a photograph of old results on the patient's phone; collection date not stated."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-11",
+        "status": "final",
+        "code": {
+          "text": "Prior chlamydia screening"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient reports a negative chlamydia screen approximately 2 years ago and no known previous STI."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-12",
+        "status": "final",
+        "code": {
+          "text": "Sexual history and reinfection risk"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Heterosexual; one male partner over the last 6 months. Mostly no condom use. Patient reports that partner has not been tested or treated; clinician identifies risk of reinfection. Currently abstinent."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "status": "final",
+        "code": {
+          "text": "Contraception and pregnancy intentions"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Not on contraception or reliable contraception. Not currently trying to conceive; states she would not be devastated by pregnancy."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-14",
+        "status": "final",
+        "code": {
+          "text": "Blood pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Systolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 112,
+              "unit": "mmHg"
+            }
+          },
+          {
+            "code": {
+              "text": "Diastolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 68,
+              "unit": "mmHg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-15",
+        "status": "final",
+        "code": {
+          "text": "Heart rate"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 76,
+          "unit": "beats/min"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-16",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-16",
+        "status": "final",
+        "code": {
+          "text": "Respiratory rate"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 14,
+          "unit": "breaths/min"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-17",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-17",
+        "status": "final",
+        "code": {
+          "text": "Temperature"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 36.9,
+          "unit": "°C"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-18",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-18",
+        "status": "final",
+        "code": {
+          "text": "Oxygen saturation"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 99,
+          "unit": "%"
+        },
+        "note": [
+          {
+            "text": "On room air."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-19",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-19",
+        "status": "final",
+        "code": {
+          "text": "Body mass index"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 23
+        },
+        "note": [
+          {
+            "text": "Approximate value."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-20",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-20",
+        "status": "final",
+        "code": {
+          "text": "General appearance"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Looks well and not toxic."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-21",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-21",
+        "status": "final",
+        "code": {
+          "text": "Abdominal examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Soft abdomen with mild suprapubic and bilateral lower pelvic tenderness on deep palpation. No rebound, guarding, masses, organomegaly or costovertebral angle tenderness."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-22",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-22",
+        "status": "final",
+        "code": {
+          "text": "External genital examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Normal external genitalia; no ulcers or lesions."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-23",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-23",
+        "status": "final",
+        "code": {
+          "text": "Speculum examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Healthy cervix, closed os, mild thin whitish discharge, no obvious pus and no contact bleeding."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-24",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-24",
+        "status": "final",
+        "code": {
+          "text": "Bimanual pelvic examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Mild cervical motion tenderness, mild uterine tenderness and mild bilateral adnexal tenderness; no masses or fullness."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-25",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-25",
+        "status": "final",
+        "code": {
+          "text": "Reported symptoms during prior metronidazole use"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Metallic taste and nausea during prior metronidazole treatment; now resolved."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-26",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-26",
+        "status": "final",
+        "code": {
+          "text": "Medication adherence"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient reports taking the completed doxycycline and metronidazole courses regularly."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-27",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-27",
+        "status": "final",
+        "code": {
+          "text": "Reported medical history negatives relevant to treatment"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No known chronic disease, no tendon history and no known cardiac disease. No QT-prolonging medications reported."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-28",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-28",
+        "status": "final",
+        "code": {
+          "text": "Tobacco use"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Non-smoker."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-29",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-29",
+        "status": "final",
+        "code": {
+          "text": "Alcohol use"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Social alcohol use, reported as 1–2 on weekends; units not specified."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-30",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-30",
+        "status": "final",
+        "code": {
+          "text": "Illicit drug use"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Denied."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-31",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-31",
+        "status": "final",
+        "code": {
+          "text": "Social circumstances and access to care"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Works hospitality evenings and weekends with prolonged standing. Lives with a cousin and reports good support. Transport is difficult and she relies on lifts; prefers fewer visits. Transport difficulties and work shifts prevented return to the previous clinic."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-32",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-32",
+        "status": "final",
+        "code": {
+          "text": "Patient concerns and engagement"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Calm and cooperative. Requests another antibiotic course to be safe because of previous BV recurrence. Concerned that prolonged standing or spicy food could cause infection to return and very concerned about future fertility. Asks about medication side effects and agrees to the treatment plan."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-1",
+        "status": "completed",
+        "medicationCodeableConcept": {
+          "text": "Ceftriaxone"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosage": [
+          {
+            "text": "Given intramuscularly for the initial PID treatment.",
+            "route": {
+              "text": "intramuscular"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Prior treatment documented in a photograph of the discharge summary; followed by doxycycline and metronidazole."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-2",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-2",
+        "status": "completed",
+        "medicationCodeableConcept": {
+          "text": "Doxycycline"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosage": [
+          {
+            "text": "100 mg twice daily for 14 days; completed 4 days before this encounter.",
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 100,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Patient reports regular adherence. Plan explicitly states not to repeat the doxycycline/metronidazole course."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-3",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-3",
+        "status": "completed",
+        "medicationCodeableConcept": {
+          "text": "Metronidazole"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosage": [
+          {
+            "text": "400 mg twice daily for 14 days; completed 4 days before this encounter.",
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 400,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Patient reports regular adherence. Prior metallic taste and nausea have resolved. Plan explicitly states not to repeat the doxycycline/metronidazole course."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-4",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-4",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Ibuprofen"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosage": [
+          {
+            "text": "Occasional use."
+          }
+        ],
+        "note": [
+          {
+            "text": "No regular medications reported."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medication-request-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medication-request-1",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Moxifloxacin 400 mg tablets"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "authoredOn": "2025-11-22",
+        "reasonCode": [
+          {
+            "text": "Mycoplasma-associated pelvic inflammatory disease"
+          }
+        ],
+        "dosageInstruction": [
+          {
+            "text": "One 400 mg tablet orally daily for 14 days. Obtain urine pregnancy testing before starting; not for use if pregnant. Avoid taking at the same time as large amounts of calcium or iron; separate by at least 2 hours.",
+            "route": {
+              "text": "oral"
+            },
+            "timing": {
+              "repeat": {
+                "boundsDuration": {
+                  "value": 14,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                },
+                "frequency": 1,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 400,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "PBS authority prescription issued today. Treatment will be adjusted if pregnancy testing is positive or new CT/NG is detected. Gastrointestinal upset, tendon pain/rupture risk, QT prolongation and photosensitivity discussed."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medication-request-2",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medication-request-2",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Paracetamol 500 mg tablets"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "authoredOn": "2025-11-22",
+        "dosageInstruction": [
+          {
+            "text": "1–2 tablets orally every 4–6 hours as needed for pain; maximum 4 g in 24 hours. Simple analgesia advised with food and within recommended doses.",
+            "route": {
+              "text": "oral"
+            },
+            "asNeededBoolean": true,
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 4,
+                "periodMax": 6,
+                "periodUnit": "h"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseRange": {
+                  "low": {
+                    "value": 1,
+                    "unit": "tablet"
+                  },
+                  "high": {
+                    "value": 2,
+                    "unit": "tablet"
+                  }
+                }
+              }
+            ],
+            "maxDosePerPeriod": {
+              "numerator": {
+                "value": 4,
+                "unit": "g"
+              },
+              "denominator": {
+                "value": 24,
+                "unit": "hours"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

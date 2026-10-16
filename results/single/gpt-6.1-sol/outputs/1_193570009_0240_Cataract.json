@@ -1,0 +1,596 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "female"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Localised dry rough skin lesion of the right dorsal forearm, likely benign"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "note": [
+          {
+            "text": "Assessment based on history only during phone telehealth; lesion could not be inspected directly. Benign nature is uncertain pending face-to-face examination."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-2",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Possible actinic keratosis (solar keratosis), right dorsal forearm"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "differential"
+            }
+          ]
+        },
+        "note": [
+          {
+            "text": "Differential diagnosis based on history only."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-3",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-3",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Possible mild dermatitis/eczema, right dorsal forearm"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "differential"
+            }
+          ]
+        },
+        "note": [
+          {
+            "text": "Differential diagnosis based on history only."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-4",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-4",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Possible seborrhoeic keratosis, right dorsal forearm"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "differential"
+            }
+          ]
+        },
+        "note": [
+          {
+            "text": "Differential diagnosis based on history only."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-5",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-5",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Possible early non-melanoma skin cancer, right dorsal forearm; less likely"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "differential"
+            }
+          ]
+        },
+        "note": [
+          {
+            "text": "Considered less likely based on history only; skin cancer could not be excluded by phone assessment."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-6",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-6",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Mild bilateral age-related cataracts"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "onsetString": "Diagnosed by optometrist approximately 18 months ago",
+        "note": [
+          {
+            "text": "Symptoms currently stable and not yet functionally disabling. Assessed as unrelated to the right forearm lesion and lubricating eye drops."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-7",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-7",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "History of skin spots, likely actinic keratoses"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional"
+            }
+          ]
+        },
+        "note": [
+          {
+            "text": "Previous spots treated by GP years ago were considered likely actinic keratoses. Current status of those lesions is not stated."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Reported right dorsal forearm lesion appearance"
+        },
+        "valueString": "Small, dry, scaly, superficial patch, approximately pea-sized; described as 'just a bit pink and rough'.",
+        "note": [
+          {
+            "text": "Patient-reported appearance; not directly inspected."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Reported forearm lesion onset and progression"
+        },
+        "valueString": "Noticed approximately 3–4 weeks ago, with gradual onset; now a little rougher to touch and more visible in the mirror. Described as stable over a few weeks, without rapid growth or colour change."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Reported symptoms associated with forearm lesion"
+        },
+        "valueString": "No pain, tenderness, itching, bleeding, or ulceration."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Preceding trauma or bite"
+        },
+        "valueString": "No preceding trauma or bite reported."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Reported constitutional symptoms"
+        },
+        "valueString": "No fevers, weight loss, night sweats, or malaise."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Sun exposure history"
+        },
+        "valueString": "Lots of sun exposure in younger years."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Current sun protection practices"
+        },
+        "valueString": "Now wears a hat and uses some sunscreen; does not always reapply sunscreen."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Skin complexion"
+        },
+        "valueString": "Fair skin, noted in clinical assessment."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Reported visual glare"
+        },
+        "valueString": "Mild glare, especially with night driving; stable."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Reported distance vision"
+        },
+        "valueString": "Mild distance blur; stable."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-11",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Reported ocular red flag symptoms"
+        },
+        "valueString": "No sudden decrease in vision, severe eye pain, marked redness, purulent discharge, or curtain over vision."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-12",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Visual symptoms and functional impact"
+        },
+        "valueString": "Currently not functionally disabling. Drives, but avoids long night drives because of glare."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Other chronic diagnoses reported"
+        },
+        "valueString": "No other significant chronic diagnoses reported apart from age-related cataracts."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-14",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Regular prescription medication use"
+        },
+        "valueString": "No regular prescription medications reported."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-15",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Smoking status"
+        },
+        "valueString": "Non-smoker."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-16",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-16",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Alcohol use"
+        },
+        "valueString": "Minimal alcohol use."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-17",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-17",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Living situation and independence"
+        },
+        "valueString": "Lives alone in a metropolitan area and is independent."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-18",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-18",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Occupation"
+        },
+        "valueString": "Retired administrator."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-19",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-19",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Physical activity and daily activities"
+        },
+        "valueString": "Walks daily and helps with grandchildren."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-20",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-20",
+        "status": "final",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Direct examination of skin lesion and eyes"
+        },
+        "dataAbsentReason": {
+          "text": "Not performed: phone-only telehealth without video; unable to inspect lesion or eyes directly."
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-1",
+        "status": "active",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "medicationCodeableConcept": {
+          "text": "Paracetamol"
+        },
+        "dosage": [
+          {
+            "text": "As needed",
+            "asNeededBoolean": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-2",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-2",
+        "status": "active",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "medicationCodeableConcept": {
+          "text": "OTC lubricating eye drops"
+        },
+        "dosage": [
+          {
+            "text": "Occasionally, as needed",
+            "asNeededBoolean": true,
+            "route": {
+              "text": "Ophthalmic"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-3",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-3",
+        "status": "active",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "medicationCodeableConcept": {
+          "text": "Sorbolene"
+        },
+        "dosage": [
+          {
+            "text": "Using on and off on the right forearm lesion",
+            "route": {
+              "text": "Topical"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Patient feels it may have helped slightly. Interim advice was to continue plain moisturiser, for example sorbolene, 1–2 times daily."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-4",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-4",
+        "status": "active",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "medicationCodeableConcept": {
+          "text": "Sunscreen, unspecified"
+        },
+        "dosage": [
+          {
+            "text": "Uses some sunscreen; does not always reapply",
+            "route": {
+              "text": "Topical"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

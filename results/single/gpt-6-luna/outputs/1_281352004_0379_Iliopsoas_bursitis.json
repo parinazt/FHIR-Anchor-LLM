@@ -1,0 +1,329 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "female"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Right groin/anterior hip pain, most likely non-septic iliopsoas bursitis or tendinopathy due to overuse/occupational load"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-2",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Hip osteoarthritis, considered less likely"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-3",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-3",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Lumbar radiculopathy, considered less likely"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-4",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-4",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Femoral neck stress fracture or avascular necrosis, considered less likely but needing exclusion if symptoms persist or increase"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-5",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-5",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Referred abdominal or retroperitoneal pathology, considered less likely"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "code": {
+          "text": "Reported right groin/anterior hip pain"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Vague onset, possibly a few weeks to a couple of months. Aching pain with intermittent sharp twinges, especially with hip flexion such as lifting the leg into a car, using stairs, moving from sitting to standing, and putting on socks. Worse at the end of the day after standing or bending over low desks. Occasional radiation into the anterior right thigh, not below the knee. Severity approximately 5/10 at baseline and up to 7/10 with movement. Improved by rest, some stretching, and a heat pack; unsure which tablets may help (possibly Panadol or Nurofen). Still working but avoiding playground duty; harder to sit on the floor with children."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "code": {
+          "text": "Red-flag and associated symptom screen"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No fevers, night sweats, weight loss, or recalled recent trauma. No bowel or bladder change or saddle anaesthesia. Mild occasional low back ache. No history of malignancy, TB, or IVDU. No abdominal, urinary, or gastrointestinal symptoms. No clinical features of sepsis currently."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "code": {
+          "text": "Vital signs"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Blood pressure"
+            },
+            "valueString": "118/72 mmHg"
+          },
+          {
+            "code": {
+              "text": "Heart rate"
+            },
+            "valueQuantity": {
+              "value": 78,
+              "unit": "beats/min"
+            }
+          },
+          {
+            "code": {
+              "text": "Respiratory rate"
+            },
+            "valueQuantity": {
+              "value": 14,
+              "unit": "breaths/min"
+            }
+          },
+          {
+            "code": {
+              "text": "Temperature"
+            },
+            "valueQuantity": {
+              "value": 36.8,
+              "unit": "°C"
+            }
+          },
+          {
+            "code": {
+              "text": "Oxygen saturation"
+            },
+            "valueString": "99% on room air"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "code": {
+          "text": "Body mass index"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Approximately 26"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "code": {
+          "text": "General appearance and gait"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Well-looking, no acute distress at rest. Mild antalgic gait favouring the right, especially for the first few steps; guarded on the right but stable."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "code": {
+          "text": "Lumbar spine and straight-leg raise examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Lumbar spine non-tender with full range of motion and mild discomfort at extremes. Straight-leg raise negative bilaterally."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "code": {
+          "text": "Right hip examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No erythema, swelling, or deformity. Marked deep femoral triangle/iliopsoas-region tenderness just distal to the inguinal ligament. No greater trochanter or lateral hip tenderness and no inguinal lymphadenopathy. Flexion limited by pain to approximately 90–100 degrees, with pain on active and passive movement. Internal rotation mildly limited with discomfort; external rotation and extension nearly full, with mild pain at extremes. Resisted hip flexion painful with positive psoas sign. FABER causes mild groin pain; no SIJ pain."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "status": "final",
+        "code": {
+          "text": "Left hip examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Full range of motion; non-tender."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "status": "final",
+        "code": {
+          "text": "Lower-limb neurological examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Power 5/5 throughout. Patellar and ankle reflexes present and symmetrical. Light-touch and pinprick sensation intact, including anterior thigh and medial leg. No foot drop."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "status": "final",
+        "code": {
+          "text": "Abdominal examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Abdomen soft and non-tender, with no masses, organomegaly, or flank tenderness."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-1",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Unspecified over-the-counter analgesia; patient unsure of product, possibly Panadol or Nurofen"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosage": [
+          {
+            "text": "As needed; product, dose, route, and frequency details unclear. Patient describes the tablets as 'little white ones or the red ones.'",
+            "asNeededBoolean": true
+          }
+        ]
+      }
+    }
+  ]
+}

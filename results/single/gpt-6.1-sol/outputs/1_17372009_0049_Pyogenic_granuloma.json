@@ -1,0 +1,614 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "female"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "code": {
+          "text": "Pyogenic granuloma of right index finger"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "bodySite": [
+          {
+            "text": "Dorsal right index finger near proximal interphalangeal joint"
+          }
+        ],
+        "onsetString": "Onset approximately 5–6 weeks ago after a paper cut, with a red lump developing over approximately 2 weeks.",
+        "note": [
+          {
+            "text": "Previously assessed as likely pyogenic granuloma at the consultation documented 15/11/25. Current assessment describes a benign vascular lesion, likely following minor trauma, with symptomatic recurrent bleeding affecting work and causing cosmetic concern. Histopathological confirmation is planned."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "code": {
+          "text": "Blood pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "effectiveDateTime": "2025-11-22",
+        "component": [
+          {
+            "code": {
+              "text": "Systolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 112,
+              "unit": "mmHg"
+            }
+          },
+          {
+            "code": {
+              "text": "Diastolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 70,
+              "unit": "mmHg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "code": {
+          "text": "Heart rate"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "effectiveDateTime": "2025-11-22",
+        "valueQuantity": {
+          "value": 76,
+          "unit": "beats/minute"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "code": {
+          "text": "Respiratory rate"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "effectiveDateTime": "2025-11-22",
+        "valueQuantity": {
+          "value": 14,
+          "unit": "breaths/minute"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "code": {
+          "text": "Body temperature"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "effectiveDateTime": "2025-11-22",
+        "valueQuantity": {
+          "value": 36.6,
+          "unit": "°C"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "code": {
+          "text": "Oxygen saturation"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "effectiveDateTime": "2025-11-22",
+        "valueQuantity": {
+          "value": 99,
+          "unit": "%"
+        },
+        "note": [
+          {
+            "text": "Measured on room air."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "code": {
+          "text": "Reported bleeding from right index finger lesion"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Still bleeding a lot, especially at work with books and whiteboard markers. Recurrent bleeding with minor trauma, requiring frequent dressing changes."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "code": {
+          "text": "Local pain and tenderness"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "bodySite": {
+          "text": "Right index finger lesion"
+        },
+        "valueString": "Mild local tenderness only; currently minimal pain."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "status": "final",
+        "code": {
+          "text": "Reported associated symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Fever"
+            },
+            "valueString": "Denied."
+          },
+          {
+            "code": {
+              "text": "Systemic symptoms"
+            },
+            "valueString": "Denied."
+          },
+          {
+            "code": {
+              "text": "Spreading redness"
+            },
+            "valueString": "Denied."
+          },
+          {
+            "code": {
+              "text": "Pus"
+            },
+            "valueString": "Denied."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "status": "final",
+        "code": {
+          "text": "Right index finger lesion examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "bodySite": {
+          "text": "Dorsal right index finger near proximal interphalangeal joint"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Lesion appearance"
+            },
+            "valueString": "Bright red friable vascular papule."
+          },
+          {
+            "code": {
+              "text": "Lesion size"
+            },
+            "valueRange": {
+              "low": {
+                "value": 5,
+                "unit": "mm"
+              },
+              "high": {
+                "value": 6,
+                "unit": "mm"
+              }
+            }
+          },
+          {
+            "code": {
+              "text": "Lesion base size"
+            },
+            "valueRange": {
+              "low": {
+                "value": 1,
+                "unit": "mm"
+              },
+              "high": {
+                "value": 2,
+                "unit": "mm"
+              }
+            }
+          },
+          {
+            "code": {
+              "text": "Lesion base and scale"
+            },
+            "valueString": "Narrow base approximately 1–2 mm, with a small collarette of scale."
+          },
+          {
+            "code": {
+              "text": "Bleeding on examination"
+            },
+            "valueString": "Bleeds on light touch but stops with pressure."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "status": "final",
+        "code": {
+          "text": "Right index finger perilesional examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Surrounding erythema"
+            },
+            "valueString": "Absent."
+          },
+          {
+            "code": {
+              "text": "Surrounding warmth"
+            },
+            "valueString": "Absent."
+          },
+          {
+            "code": {
+              "text": "Induration"
+            },
+            "valueString": "Absent."
+          },
+          {
+            "code": {
+              "text": "Fluctuance"
+            },
+            "valueString": "Absent."
+          },
+          {
+            "code": {
+              "text": "Discharge"
+            },
+            "valueString": "Absent."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-11",
+        "status": "final",
+        "code": {
+          "text": "Right index finger joint examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Range of motion"
+            },
+            "valueString": "Full."
+          },
+          {
+            "code": {
+              "text": "Joint tenderness"
+            },
+            "valueString": "Non-tender."
+          },
+          {
+            "code": {
+              "text": "Swelling"
+            },
+            "valueString": "Absent."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-12",
+        "status": "final",
+        "code": {
+          "text": "Other exposed skin lesions"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No similar lesions on brief examination of exposed skin."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "status": "final",
+        "code": {
+          "text": "Regional lymph node examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No palpable regional lymph nodes."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-14",
+        "status": "final",
+        "code": {
+          "text": "Clinical evidence of secondary bacterial infection"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No clinical evidence of secondary bacterial infection; antibiotics not indicated."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-15",
+        "status": "final",
+        "code": {
+          "text": "Psychosocial impact of finger lesion"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Stressed managing frequent bleeding and dressing changes at school; worried about appearance and parents thinking the lesion is contagious. Unhappy with conservative management and strongly requesting immediate removal. Initially frustrated but accepted the plan for the earliest procedure slot next week."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-16",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-16",
+        "status": "final",
+        "code": {
+          "text": "Past medical history"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No significant past medical history reported."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-17",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-17",
+        "status": "final",
+        "code": {
+          "text": "Reported medication use"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Regular medications"
+            },
+            "valueString": "None reported."
+          },
+          {
+            "code": {
+              "text": "Anticoagulant use"
+            },
+            "valueString": "None reported."
+          },
+          {
+            "code": {
+              "text": "Oral contraceptive pill use"
+            },
+            "valueString": "None reported."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-18",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-18",
+        "status": "final",
+        "code": {
+          "text": "Smoking status"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Non-smoker."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-19",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-19",
+        "status": "final",
+        "code": {
+          "text": "Alcohol use"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Occasional."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-20",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-20",
+        "status": "final",
+        "code": {
+          "text": "Occupation"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Primary school teacher."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-21",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-21",
+        "status": "final",
+        "code": {
+          "text": "Living situation"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Lives with partner."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-22",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-22",
+        "status": "final",
+        "code": {
+          "text": "Patient-reported access barriers"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Drives and has transport, but cost and time off work are concerns. Prefers an in-house option if it can be done soon."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-23",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-23",
+        "status": "final",
+        "code": {
+          "text": "Full blood count"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "effectiveDateTime": "2024-03",
+        "valueString": "Normal per previous routine blood results in the file."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-24",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-24",
+        "status": "final",
+        "code": {
+          "text": "Urea, electrolytes and creatinine"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "effectiveDateTime": "2024-03",
+        "valueString": "Normal per previous routine blood results in the file."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-25",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-25",
+        "status": "final",
+        "code": {
+          "text": "Liver function tests"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "effectiveDateTime": "2024-03",
+        "valueString": "Normal per previous routine blood results in the file."
+      }
+    }
+  ]
+}

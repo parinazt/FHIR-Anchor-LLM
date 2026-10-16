@@ -1,0 +1,855 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "female"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "IBS-type picture with alternating bowel habit"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional"
+            }
+          ]
+        },
+        "note": [
+          {
+            "text": "In the context of fibromyalgia; pain decreases with defecation. No current alarm features."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-2",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Irritable bladder / possible overactive bladder"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional"
+            }
+          ]
+        },
+        "note": [
+          {
+            "text": "Frequency and urgency with negative urine dip. Fibromyalgia-associated bladder hypersensitivity considered likely if MSU is clear; MSU result pending."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-3",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-3",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Fibromyalgia"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "note": [
+          {
+            "text": "Stable with moderate control on low-dose amitriptyline."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-4",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-4",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Depression"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "note": [
+          {
+            "text": "Stable on sertraline."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "code": {
+          "text": "Alternating bowel habit"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Baseline constipation, now alternating constipation and loose stools for approximately 3–4 months.",
+        "note": [
+          {
+            "text": "Patient reports symptoms started after antibiotics and believes the antibiotics affected her gut; causal relationship not established."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "code": {
+          "text": "Constipation symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No bowel movement for 2–3 days, with hard/lumpy stools and straining."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "code": {
+          "text": "Loose stools"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Following constipation, loose stools for 1–2 days, 3–4 stools per day; not watery."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "code": {
+          "text": "Gastrointestinal symptom negatives"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Nocturnal diarrhoea"
+            },
+            "valueString": "Denied"
+          },
+          {
+            "code": {
+              "text": "Rectal bleeding"
+            },
+            "valueString": "Denied"
+          },
+          {
+            "code": {
+              "text": "Melaena"
+            },
+            "valueString": "Denied"
+          },
+          {
+            "code": {
+              "text": "Vomiting"
+            },
+            "valueString": "Denied"
+          },
+          {
+            "code": {
+              "text": "Weight loss"
+            },
+            "valueString": "Denied"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "code": {
+          "text": "Lower abdominal pain"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Crampy lower abdominal pain, left greater than right, decreasing after opening bowels or passing flatus."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "code": {
+          "text": "Bloating and flatulence"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Bloating and increased wind."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "code": {
+          "text": "Reported fever"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No fevers reported."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "status": "final",
+        "code": {
+          "text": "Urinary frequency"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Voiding every 1–2 hours, previously every 3–4 hours; urinary symptoms for approximately 6 weeks."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "status": "final",
+        "code": {
+          "text": "Urinary urgency and voided volumes"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Urgency with small voided volumes; urinary symptoms for approximately 6 weeks."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "status": "final",
+        "code": {
+          "text": "Urinary symptom negatives"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Dysuria"
+            },
+            "valueString": "Denied"
+          },
+          {
+            "code": {
+              "text": "Haematuria"
+            },
+            "valueString": "Denied"
+          },
+          {
+            "code": {
+              "text": "Flank pain"
+            },
+            "valueString": "Denied"
+          },
+          {
+            "code": {
+              "text": "Urinary incontinence"
+            },
+            "valueString": "Denied"
+          },
+          {
+            "code": {
+              "text": "Urinary retention symptoms"
+            },
+            "valueString": "Denied"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-11",
+        "status": "final",
+        "code": {
+          "text": "General appearance"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Looks tired but well."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-12",
+        "status": "final",
+        "code": {
+          "text": "Blood pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Systolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 118,
+              "unit": "mmHg"
+            }
+          },
+          {
+            "code": {
+              "text": "Diastolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 74,
+              "unit": "mmHg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "status": "final",
+        "code": {
+          "text": "Heart rate"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 78,
+          "unit": "beats/minute"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-14",
+        "status": "final",
+        "code": {
+          "text": "Temperature finding"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Afebrile."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-15",
+        "status": "final",
+        "code": {
+          "text": "Body mass index"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 27,
+          "unit": "kg/m²"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-16",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-16",
+        "status": "final",
+        "code": {
+          "text": "Abdominal examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Abdominal consistency"
+            },
+            "valueString": "Soft"
+          },
+          {
+            "code": {
+              "text": "Abdominal distension"
+            },
+            "valueString": "Non-distended"
+          },
+          {
+            "code": {
+              "text": "Abdominal tenderness"
+            },
+            "valueString": "Mild diffuse lower abdominal tenderness, left greater than right"
+          },
+          {
+            "code": {
+              "text": "Guarding"
+            },
+            "valueString": "Absent"
+          },
+          {
+            "code": {
+              "text": "Abdominal masses"
+            },
+            "valueString": "None"
+          },
+          {
+            "code": {
+              "text": "Bowel sounds"
+            },
+            "valueString": "Normal"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-17",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-17",
+        "status": "final",
+        "code": {
+          "text": "Costovertebral angle tenderness"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Absent."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-18",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-18",
+        "status": "final",
+        "code": {
+          "text": "Urine dipstick"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Urine specific gravity"
+            },
+            "valueQuantity": {
+              "value": 1.015
+            }
+          },
+          {
+            "code": {
+              "text": "Urine pH"
+            },
+            "valueQuantity": {
+              "value": 6
+            }
+          },
+          {
+            "code": {
+              "text": "Urine nitrites"
+            },
+            "valueString": "Negative"
+          },
+          {
+            "code": {
+              "text": "Urine leukocytes"
+            },
+            "valueString": "Negative"
+          },
+          {
+            "code": {
+              "text": "Urine blood"
+            },
+            "valueString": "Negative"
+          }
+        ],
+        "note": [
+          {
+            "text": "Performed at this encounter."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-19",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-19",
+        "status": "final",
+        "code": {
+          "text": "Midstream urine microscopy, culture and sensitivity result availability"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Sample sent at this encounter; results pending."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-20",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-20",
+        "status": "final",
+        "code": {
+          "text": "Previous blood test results"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Full blood count"
+            },
+            "valueString": "Normal"
+          },
+          {
+            "code": {
+              "text": "Urea and electrolytes"
+            },
+            "valueString": "Normal"
+          },
+          {
+            "code": {
+              "text": "Liver function tests"
+            },
+            "valueString": "Normal"
+          },
+          {
+            "code": {
+              "text": "C-reactive protein"
+            },
+            "valueString": "Normal"
+          },
+          {
+            "code": {
+              "text": "Coeliac testing"
+            },
+            "valueString": "Normal"
+          }
+        ],
+        "note": [
+          {
+            "text": "Previous blood tests approximately 18 months before this encounter."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-21",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-21",
+        "status": "final",
+        "code": {
+          "text": "Suicidal ideation"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No suicidal ideation."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-1",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Amitriptyline"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "reasonCode": [
+          {
+            "text": "Fibromyalgia"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "20 mg at night",
+            "timing": {
+              "code": {
+                "text": "At night"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 20,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Plan is to continue the current dose. A possible later increase in 10 mg steps to a maximum of 50 mg at night is for discussion at a longer appointment, not a current dose change."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-2",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-2",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Sertraline"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "reasonCode": [
+          {
+            "text": "Depression"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "100 mg in the morning",
+            "timing": {
+              "code": {
+                "text": "In the morning"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 100,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Stable for more than 12 months. Plan is to continue the current dose."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-3",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-3",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Ibuprofen"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosage": [
+          {
+            "text": "As needed only",
+            "asNeededBoolean": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-4",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-4",
+        "status": "unknown",
+        "medicationCodeableConcept": {
+          "text": "Unspecified antibiotics"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "note": [
+          {
+            "text": "Patient reports previous antibiotic use before the onset of bowel symptoms. Medicine, dose, dates and completion status are not specified."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medication-request-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medication-request-1",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Psyllium"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "reasonCode": [
+          {
+            "text": "IBS-type bowel symptoms"
+          }
+        ],
+        "dosageInstruction": [
+          {
+            "text": "Trial increased soluble fibre with psyllium; increase slowly."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medication-request-2",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medication-request-2",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Macrogol (Movicol)"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "reasonCode": [
+          {
+            "text": "Constipation"
+          }
+        ],
+        "dosageInstruction": [
+          {
+            "text": "As needed if no bowel movement for more than 48 hours.",
+            "asNeededBoolean": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medication-request-3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medication-request-3",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Hyoscine butylbromide"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "reasonCode": [
+          {
+            "text": "Abdominal cramps"
+          }
+        ],
+        "dosageInstruction": [
+          {
+            "text": "10 mg up to four times daily as needed for cramps. First dose at home; may increase sedation with amitriptyline.",
+            "asNeededBoolean": true,
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "frequencyMax": 4,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 10,
+                  "unit": "mg"
+                }
+              }
+            ],
+            "patientInstruction": "Take the first dose at home; may increase sedation with amitriptyline."
+          }
+        ]
+      }
+    }
+  ]
+}

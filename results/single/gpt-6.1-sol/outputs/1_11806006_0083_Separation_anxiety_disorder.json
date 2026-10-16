@@ -1,0 +1,645 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "female",
+        "address": [
+          {
+            "use": "home",
+            "city": "Sydney"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Separation anxiety disorder"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "onsetString": "Diagnosed approximately 18 months ago by previous GP; symptoms present for more than 12 months.",
+        "note": [
+          {
+            "text": "Chronic, active and functionally impairing. Worse over the last 6–8 months, with further worsening over approximately the last 2 months as partner's office days increased."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-2",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Agoraphobia"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "onsetString": "Diagnosed approximately 18 months ago by previous GP.",
+        "note": [
+          {
+            "text": "Comorbid with separation anxiety disorder; significant avoidance."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-3",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-3",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Generalized anxiety disorder, historical"
+        },
+        "note": [
+          {
+            "text": "Received approximately 8 CBT sessions earlier this year for GAD/agoraphobia. Current GAD activity is not established in this note."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "code": {
+          "text": "Separation-related distress"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Marked distress when away from partner or home on most days. Reports feeling physically sick and unable to focus until partner returns."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "code": {
+          "text": "Anticipatory anxiety"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Anxiety the night before partner goes to work or social activities."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "code": {
+          "text": "Checking behavior and catastrophic worries"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Repetitive checking of partner's location and messages; worries something bad will happen and he will not come home."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "code": {
+          "text": "Avoidance and functional limitations"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Avoids being alone outside home, public transport and busy indoor spaces alone. Cancels or delays appointments if partner cannot accompany her and uses grocery delivery. Can walk a short distance around the block with partner. Telehealth is acceptable; unfamiliar places alone cause high distress. Reports remote work permits avoidance of going anywhere."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "code": {
+          "text": "Sleep difficulty and nightmares"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Difficulty sleeping when partner is not in the flat; waits awake until he returns. Occasional nightmares about partner going missing or having an accident."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "code": {
+          "text": "Separation-associated somatic symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Abdominal tightness, nausea and mild headache when partner is about to leave; symptoms settle when he is home."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "code": {
+          "text": "Anxiety course and reported triggers"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Symptoms present for more than 12 months and worse over the last 6–8 months. Further worsening over approximately the last 2 months with partner's increased office attendance, now 3 days per week. Increased coffee on those mornings feels like it worsens anxiety. Heavy news and phone use reportedly increases jitteriness."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "status": "final",
+        "code": {
+          "text": "Caffeine intake"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Approximately 3–4 coffees per day, with more on stress days. Drinks more on partner's office mornings to calm her nerves but feels it worsens anxiety."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "status": "final",
+        "code": {
+          "text": "Alcohol use"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Rare alcohol use, approximately 1–2 drinks per month."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "status": "final",
+        "code": {
+          "text": "Tobacco and illicit substance use"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Non-smoker; denies illicit substance use. No substance misuse reported."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-11",
+        "status": "final",
+        "code": {
+          "text": "Depressive symptoms and current major depressive episode assessment"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Denies persistent low mood, hopelessness and anhedonia. Still enjoys drawing, shows and online gaming. No clear current major depressive episode evident."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-12",
+        "status": "final",
+        "code": {
+          "text": "Suicidal ideation, homicidal ideation and self-harm"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No suicidal ideation, homicidal ideation or self-harm thoughts. No history of self-harm reported."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "status": "final",
+        "code": {
+          "text": "Psychiatric history and other current psychiatric findings"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No psychiatric hospitalization, mania or psychosis reported. No other primary psychiatric disorder evident today."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-14",
+        "status": "final",
+        "code": {
+          "text": "Current medication use"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports no regular medications and no current psychiatric medications."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-15",
+        "status": "final",
+        "code": {
+          "text": "Recorded prior SSRI and benzodiazepine use"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Chart check found no prior SSRIs or benzodiazepines on the PBS record over the last 2 years.",
+        "note": [
+          {
+            "text": "Added at 16:30 by Dr L Chan; this is a record-based finding, not confirmation of no lifetime use."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-16",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-16",
+        "status": "final",
+        "code": {
+          "text": "Appearance and hygiene"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Neat, good hygiene, seated at a desk.",
+        "note": [
+          {
+            "text": "Limited examination by video."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-17",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-17",
+        "status": "final",
+        "code": {
+          "text": "Behavior and engagement"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Calm but clearly anxious, cooperative, with good eye contact via camera."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-18",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-18",
+        "status": "final",
+        "code": {
+          "text": "Speech"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Normal."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-19",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-19",
+        "status": "final",
+        "code": {
+          "text": "Mood and affect"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Mood"
+            },
+            "valueString": "Anxious."
+          },
+          {
+            "code": {
+              "text": "Affect"
+            },
+            "valueString": "Congruent and reactive."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-20",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-20",
+        "status": "final",
+        "code": {
+          "text": "Thought form and content"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Thought form"
+            },
+            "valueString": "Linear."
+          },
+          {
+            "code": {
+              "text": "Thought content"
+            },
+            "valueString": "Dominated by worries about partner's safety and being alone. No suicidal ideation or psychosis."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-21",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-21",
+        "status": "final",
+        "code": {
+          "text": "Cognition and insight"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Cognition"
+            },
+            "valueString": "Grossly intact."
+          },
+          {
+            "code": {
+              "text": "Insight"
+            },
+            "valueString": "Good."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-22",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-22",
+        "status": "final",
+        "code": {
+          "text": "Respiratory appearance and color"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No obvious respiratory distress; color appears normal on limited video examination."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-23",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-23",
+        "status": "final",
+        "code": {
+          "text": "General physical symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Otherwise well by history. No red flag physical symptoms volunteered."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-24",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-24",
+        "status": "final",
+        "code": {
+          "text": "Patient-reported previous blood pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient reports blood pressure measured at pathology approximately 3 months ago was normal; no numeric result supplied."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-25",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-25",
+        "status": "final",
+        "code": {
+          "text": "Current vital signs"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dataAbsentReason": {
+          "text": "No observations available today during telehealth consultation."
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-26",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-26",
+        "status": "final",
+        "code": {
+          "text": "TSH"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "effectiveDateTime": "2023",
+        "valueQuantity": {
+          "value": 1.6
+        },
+        "interpretation": [
+          {
+            "text": "Normal"
+          }
+        ],
+        "note": [
+          {
+            "text": "Last labs from external pathology, reviewed in chart addendum. Units not supplied."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-27",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-27",
+        "status": "final",
+        "code": {
+          "text": "Fasting blood glucose"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "effectiveDateTime": "2023",
+        "valueQuantity": {
+          "value": 4.9
+        },
+        "note": [
+          {
+            "text": "Last labs from external pathology, reviewed in chart addendum. Units not supplied."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-28",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-28",
+        "status": "final",
+        "code": {
+          "text": "Lipids"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "effectiveDateTime": "2023",
+        "valueString": "Within normal limits per scanned external pathology report."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-29",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-29",
+        "status": "final",
+        "code": {
+          "text": "Psychosocial stressors"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Partner has returned to office work 3 days per week. Financial constraints limit access to therapy."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-30",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-30",
+        "status": "final",
+        "code": {
+          "text": "Occupational functioning"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Works part-time in remote customer service from home. Reports this suits her but allows avoidance of going anywhere."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-31",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-31",
+        "status": "final",
+        "code": {
+          "text": "Reported response to prior therapy and motivation"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports prior CBT and homework helped. Therapy stopped when funded sessions finished and because of cost. Motivated to re-engage and feels she needs structure."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-32",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-32",
+        "status": "final",
+        "code": {
+          "text": "Treatment preference and understanding"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Prefers to prioritize therapy with medication as backup. Engaged and asks about medication dependence and prognosis. States she will reduce coffee and book a longer appointment. Appears to understand and agrees with the plan."
+      }
+    }
+  ]
+}

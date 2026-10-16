@@ -1,0 +1,459 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "male"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Irritant contact dermatitis of both forearms"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "severity": {
+          "text": "Mild to moderate"
+        },
+        "bodySite": [
+          {
+            "text": "Bilateral forearms"
+          }
+        ],
+        "note": [
+          {
+            "text": "Likely occupational, associated with new industrial soap/cleaners and sweat/friction, with possible contributions from sun or fibreglass. Slightly improving with emollient and partial avoidance."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-2",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Congenital red-green colour vision deficiency"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "onsetString": "Congenital",
+        "note": [
+          {
+            "text": "Long-standing and stable, with no acute change. Makes self-monitoring of rash colour difficult."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "code": {
+          "text": "Reported forearm rash"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Rash on both forearms for approximately 10 days; still present but a bit better. Wife reports that it was not going away but agrees it looks a bit better now."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "code": {
+          "text": "Itching"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Forearm rash remains itchy; worse after work and in the evenings."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "code": {
+          "text": "Reported symptoms associated with rash"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Pain"
+            },
+            "valueString": "Denied"
+          },
+          {
+            "code": {
+              "text": "Fever"
+            },
+            "valueString": "Denied"
+          },
+          {
+            "code": {
+              "text": "Blisters"
+            },
+            "valueString": "Denied"
+          },
+          {
+            "code": {
+              "text": "Weeping"
+            },
+            "valueString": "Denied"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "code": {
+          "text": "Occupational and environmental exposures"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Apprentice electrician working outdoors, pushes sleeves up, and has been using a new orange heavy-duty degreaser for 2–3 weeks. Reports increased sun exposure."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "code": {
+          "text": "Response to work soap"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient reports that the soap really stings if left on."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "code": {
+          "text": "Patient-reported possible rash triggers"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient thinks the rash may be due to the new work soap or too much Red Bull; these are patient hypotheses, not established causes."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "code": {
+          "text": "Reported rash colour change"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Wife reports that the rash has changed from red to more brown."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "status": "final",
+        "code": {
+          "text": "Ability to monitor rash colour"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient struggles to tell whether the rash is redder because of known red-green colour vision deficiency."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "status": "final",
+        "code": {
+          "text": "General appearance on limited video examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Well, in no apparent distress, talking in full sentences."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "status": "final",
+        "code": {
+          "text": "Forearm skin examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Limited video examination shows a patchy erythematous papular rash over the extensor surfaces of both forearms, right greater than left."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-11",
+        "status": "final",
+        "code": {
+          "text": "Additional skin examination findings"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Vesicles"
+            },
+            "valueString": "No obvious vesicles on limited video examination"
+          },
+          {
+            "code": {
+              "text": "Crust"
+            },
+            "valueString": "Absent on limited video examination"
+          },
+          {
+            "code": {
+              "text": "Pus"
+            },
+            "valueString": "Absent on limited video examination"
+          },
+          {
+            "code": {
+              "text": "Swelling"
+            },
+            "valueString": "No significant swelling on limited video examination"
+          },
+          {
+            "code": {
+              "text": "Hand and palm involvement"
+            },
+            "valueString": "Hands and palms spared"
+          },
+          {
+            "code": {
+              "text": "Appearance of infection"
+            },
+            "valueString": "Rash looks non-infected on limited video examination"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-12",
+        "status": "final",
+        "code": {
+          "text": "New visual symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No new visual symptoms or acute change."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "status": "final",
+        "code": {
+          "text": "Tiredness"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Tiredness after long hot days; assessment deferred."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-14",
+        "status": "final",
+        "code": {
+          "text": "Headaches"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Headaches after long hot days; assessment deferred."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-1",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Sorbolene"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "note": [
+          {
+            "text": "Started following a phone consultation 5 days before this encounter, along with avoidance of the new work soap. Rash is slightly improving with emollient and partial avoidance. Plan is to continue sorbolene liberally."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medication-request-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medication-request-1",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Hydrocortisone 1% cream"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosageInstruction": [
+          {
+            "sequence": 1,
+            "text": "Apply a thin layer to affected areas twice daily for 5–7 days, then once daily as settling. Maximum 2 weeks without review. Avoid face, groin and broken skin.",
+            "route": {
+              "text": "Topical"
+            },
+            "site": {
+              "text": "Affected areas of the forearms"
+            },
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            }
+          },
+          {
+            "sequence": 2,
+            "text": "After the initial 5–7 days, apply a thin layer once daily as the rash settles; total course maximum 2 weeks without review.",
+            "route": {
+              "text": "Topical"
+            },
+            "site": {
+              "text": "Affected areas of the forearms"
+            },
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medication-request-2",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medication-request-2",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Cetirizine"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10 mg orally at night as needed for itch; patient will use only if itching affects sleep.",
+            "route": {
+              "text": "Oral"
+            },
+            "timing": {
+              "code": {
+                "text": "At night"
+              }
+            },
+            "asNeededBoolean": true,
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 10,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Patient is reluctant to take tablets and intends to use only if itch affects sleep."
+          }
+        ]
+      }
+    }
+  ]
+}

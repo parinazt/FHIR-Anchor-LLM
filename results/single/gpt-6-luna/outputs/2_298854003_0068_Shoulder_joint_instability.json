@@ -1,0 +1,171 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "male"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional"
+            }
+          ]
+        },
+        "code": {
+          "text": "Recurrent left shoulder instability, likely atraumatic/multidirectional, currently symptomatic"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "code": {
+          "text": "Reported left shoulder symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "For the last 6 weeks, the patient has felt that the left shoulder is loose and may slip, especially with overhead work lifting plywood sheets. Two near-subluxation episodes occurred while reaching out to the side; he had to hold the arm and slowly bring it back. No complete dislocation during these episodes and no ED visit. Baseline ache 2–3/10, increasing to 6/10 after a near-subluxation and settling with rest and PRN ibuprofen. No night pain, rest pain, neck pain, hand paraesthesia, or hand weakness."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "code": {
+          "text": "Left shoulder instability history and red-flag screen"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Recurrent atraumatic left shoulder instability since the late teens, with multiple subluxation or near-subluxation events. No complete dislocation requiring reduction in the last 12 months; last reported about 3 years ago during social football. No recent high-energy trauma, fever, weight loss, true locking or catching, or acute loss of range of motion."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "code": {
+          "text": "Left shoulder function and work impact"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Still working full time and self-modifying duties, avoiding heavy overhead lifting where possible and taking more breaks. Avoiding football, gym overhead press, and heavy overhead loads; activities of daily living are okay, but he is cautious with sport and heavy loads. He wants to maintain his apprenticeship and return to social sport safely."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "code": {
+          "text": "Telehealth left shoulder range of motion"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "By patient report, active elevation is greater than 160 degrees. The shoulder feels loose or apprehensive around 90–120 degrees of abduction. Functional internal and external rotation could not be fully assessed by telehealth."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "code": {
+          "text": "Telehealth strength, stability, and distal function"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Gross functional strength is preserved for light activities by patient report, with perceived reduced control and stability, especially overhead and with the arm outstretched in abduction and external rotation. No subjective weakness; grip is okay and hand sensation is normal by patient report."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "code": {
+          "text": "Telehealth general and visible findings"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Alert, speaking in full sentences, cooperative, and tangential. No audible shortness of breath or distress. No visible shoulder deformity, swelling, redness, or bruising reported. No neck pain with self-movement."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-1",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Ibuprofen"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosage": [
+          {
+            "text": "400 mg as needed, up to three times daily; patient reports use about 1–2 days per week. Advised may continue with food, maximum 1200 mg in 24 hours, and avoid use for more than 3–5 consecutive days.",
+            "asNeededBoolean": true,
+            "route": {
+              "text": "oral"
+            },
+            "timing": {
+              "repeat": {
+                "frequency": 3,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 400,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

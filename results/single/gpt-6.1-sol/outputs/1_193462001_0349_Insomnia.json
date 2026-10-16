@@ -1,0 +1,794 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "female"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Chronic insomnia"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "onsetString": "Approximately 9–10 months",
+        "note": [
+          {
+            "text": "Assessed as multifactorial: shift work, poor sleep hygiene, and mild work-related anxiety. No red flags for OSA, MDD, thyroid disease, or a significant medical cause; no clear secondary cause on blood tests."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-2",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Mild work-related anxiety"
+        },
+        "note": [
+          {
+            "text": "Assessed as contributing to insomnia."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-3",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-3",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Borderline low iron stores"
+        },
+        "note": [
+          {
+            "text": "Likely secondary to menses; may contribute to fatigue. No restless legs symptoms."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "code": {
+          "text": "Reported sleep pattern"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Sleep onset latency"
+            },
+            "valueRange": {
+              "low": {
+                "value": 60,
+                "unit": "minutes"
+              },
+              "high": {
+                "value": 90,
+                "unit": "minutes"
+              }
+            }
+          },
+          {
+            "code": {
+              "text": "Awakenings"
+            },
+            "valueString": "Wakes 2–3 times"
+          },
+          {
+            "code": {
+              "text": "Sleep duration on work days"
+            },
+            "valueRange": {
+              "low": {
+                "value": 4,
+                "unit": "hours"
+              },
+              "high": {
+                "value": 5,
+                "unit": "hours"
+              }
+            }
+          },
+          {
+            "code": {
+              "text": "Sleep duration on days off"
+            },
+            "valueString": "6 hours if she 'really pushes it'"
+          },
+          {
+            "code": {
+              "text": "Sleep quality and aggravating factors"
+            },
+            "valueString": "Broken sleep; worse with shift changes"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "code": {
+          "text": "Fatigue"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Feels like she is 'running on empty'; tired"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "code": {
+          "text": "Caffeine consumption"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Increased intake: 3–4 coffees, last often at 5–6 pm"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "code": {
+          "text": "Sleep-related behaviors"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Uses screens in bed and checks work emails; sleeps in late on days off"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "code": {
+          "text": "Pre-sleep rumination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "'Brain won’t switch off'; replays work-related matters"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "code": {
+          "text": "Reported mood and psychiatric symptom screen"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Mood"
+            },
+            "valueString": "'OK just tired and a bit snappy'"
+          },
+          {
+            "code": {
+              "text": "Low mood"
+            },
+            "valueString": "Denied"
+          },
+          {
+            "code": {
+              "text": "Anhedonia"
+            },
+            "valueString": "Denied"
+          },
+          {
+            "code": {
+              "text": "Suicidal ideation"
+            },
+            "valueString": "Denied"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "code": {
+          "text": "Sleep-related symptom screen"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Snoring"
+            },
+            "valueString": "Absent"
+          },
+          {
+            "code": {
+              "text": "Apnoeas"
+            },
+            "valueString": "Absent"
+          },
+          {
+            "code": {
+              "text": "Restless legs symptoms"
+            },
+            "valueString": "Absent"
+          },
+          {
+            "code": {
+              "text": "Parasomnias"
+            },
+            "valueString": "Absent"
+          },
+          {
+            "code": {
+              "text": "Narcolepsy symptoms"
+            },
+            "valueString": "Absent"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "status": "final",
+        "code": {
+          "text": "Alcohol and sedative use"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No alcohol used for sleep; no benzodiazepines or sedatives"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "status": "final",
+        "code": {
+          "text": "Haemoglobin"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 124,
+          "unit": "g/L"
+        },
+        "note": [
+          {
+            "text": "Previous test from the last visit; at the lower limit of normal. Rechecked in the system with unchanged result."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "status": "final",
+        "code": {
+          "text": "Mean corpuscular volume"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 86
+        },
+        "note": [
+          {
+            "text": "Previous test from the last visit; unit not stated."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-11",
+        "status": "final",
+        "code": {
+          "text": "White cell count and platelets"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "White cell count"
+            },
+            "valueString": "Normal"
+          },
+          {
+            "code": {
+              "text": "Platelets"
+            },
+            "valueString": "Normal"
+          }
+        ],
+        "note": [
+          {
+            "text": "Previous tests from the last visit."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-12",
+        "status": "final",
+        "code": {
+          "text": "Ferritin"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 18,
+          "unit": "µg/L"
+        },
+        "note": [
+          {
+            "text": "Previous test from the last visit; low-normal. Rechecked in the system with unchanged result."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "status": "final",
+        "code": {
+          "text": "Other iron studies"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Otherwise normal",
+        "note": [
+          {
+            "text": "Previous tests from the last visit."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-14",
+        "status": "final",
+        "code": {
+          "text": "Other previous laboratory results"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Vitamin B12"
+            },
+            "valueString": "Normal"
+          },
+          {
+            "code": {
+              "text": "Folate"
+            },
+            "valueString": "Normal"
+          },
+          {
+            "code": {
+              "text": "Urea and electrolytes"
+            },
+            "valueString": "Normal"
+          },
+          {
+            "code": {
+              "text": "Liver function tests"
+            },
+            "valueString": "Normal"
+          },
+          {
+            "code": {
+              "text": "Fasting blood glucose"
+            },
+            "valueString": "Normal"
+          }
+        ],
+        "note": [
+          {
+            "text": "Tests from the last visit; rechecked in the system, all as previously documented."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-15",
+        "status": "final",
+        "code": {
+          "text": "Thyroid-stimulating hormone"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 1.8
+        },
+        "note": [
+          {
+            "text": "Previous test from the last visit; normal. Unit not stated."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-16",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-16",
+        "status": "final",
+        "code": {
+          "text": "Two-week sleep diary"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Bedtime"
+            },
+            "valueString": "22:00–01:00, shift dependent"
+          },
+          {
+            "code": {
+              "text": "Wake time"
+            },
+            "valueString": "05:00–11:00, shift dependent"
+          },
+          {
+            "code": {
+              "text": "Sleep latency"
+            },
+            "valueRange": {
+              "low": {
+                "value": 45,
+                "unit": "minutes"
+              },
+              "high": {
+                "value": 90,
+                "unit": "minutes"
+              }
+            }
+          },
+          {
+            "code": {
+              "text": "Wake time after sleep onset"
+            },
+            "valueRange": {
+              "low": {
+                "value": 40,
+                "unit": "minutes"
+              },
+              "high": {
+                "value": 60,
+                "unit": "minutes"
+              }
+            }
+          },
+          {
+            "code": {
+              "text": "Total sleep time"
+            },
+            "valueRange": {
+              "low": {
+                "value": 4,
+                "unit": "hours"
+              },
+              "high": {
+                "value": 6,
+                "unit": "hours"
+              }
+            }
+          },
+          {
+            "code": {
+              "text": "Sleep efficiency"
+            },
+            "valueString": "Approximately 65–70%"
+          },
+          {
+            "code": {
+              "text": "Caffeine intake"
+            },
+            "valueString": "Up to 4 cups, often after 15:00"
+          },
+          {
+            "code": {
+              "text": "Screen use in bed"
+            },
+            "valueString": "Nightly"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-17",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-17",
+        "status": "final",
+        "code": {
+          "text": "Right shoulder ache"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Present for months, worse after long shifts; no injury; still working",
+        "note": [
+          {
+            "text": "Not fully assessed because of limited time. No red flag symptoms on brief screening."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-18",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-18",
+        "status": "final",
+        "code": {
+          "text": "Bloating"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Listed as a concern; assessment deferred"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-19",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-19",
+        "status": "final",
+        "code": {
+          "text": "Mole concern"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient wants a mole checked; no features documented; assessment deferred"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-20",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-20",
+        "status": "final",
+        "code": {
+          "text": "Toenail concern"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Listed as a concern; no specific finding documented; assessment deferred"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-21",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-21",
+        "status": "final",
+        "code": {
+          "text": "Palpitations"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Listed as a concern; assessment deferred"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-22",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-22",
+        "status": "final",
+        "code": {
+          "text": "General appearance"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Looks tired but well"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-23",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-23",
+        "status": "final",
+        "code": {
+          "text": "Body mass index"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Within normal limits"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-24",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-24",
+        "status": "final",
+        "code": {
+          "text": "Targeted physical examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Cardiovascular examination"
+            },
+            "valueString": "Grossly no abnormality detected"
+          },
+          {
+            "code": {
+              "text": "Respiratory examination"
+            },
+            "valueString": "Grossly no abnormality detected"
+          },
+          {
+            "code": {
+              "text": "Abdominal examination"
+            },
+            "valueString": "Grossly no abnormality detected"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-25",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-25",
+        "status": "final",
+        "code": {
+          "text": "Mental state examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Mood"
+            },
+            "valueString": "Congruent"
+          },
+          {
+            "code": {
+              "text": "Psychosis"
+            },
+            "valueString": "No psychosis"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medication-request-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medication-request-1",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "OTC oral iron (ferrous sulfate given as an example)"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Start OTC oral iron, e.g. ferrous sulfate, daily with food and vitamin C. Dose not specified.",
+            "route": {
+              "text": "oral"
+            },
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "For borderline low iron stores. Warned about black stools and constipation."
+          }
+        ]
+      }
+    }
+  ]
+}

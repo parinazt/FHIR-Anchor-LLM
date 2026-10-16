@@ -1,0 +1,931 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "female"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Definite acute rheumatic fever"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "onsetString": "Diagnosed 4 months before this encounter",
+        "note": [
+          {
+            "text": "Initial presentation included polyarthritis and carditis, with mild mitral regurgitation on echocardiography. Current findings do not establish definite recurrent acute rheumatic fever."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-2",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Mild rheumatic heart disease with mild mitral regurgitation"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "note": [
+          {
+            "text": "On secondary prophylaxis through the RHD program; reported adherent."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-3",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-3",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Mild polyarthralgia"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-4",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-4",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Possible nonspecific inflammation, post-infective inflammation, or minor flare"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional"
+            }
+          ]
+        },
+        "note": [
+          {
+            "text": "Raised ESR/CRP with mild polyarthralgia only. Assessed as more consistent with these possibilities than definite recurrent ARF; high-risk patient."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-5",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-5",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Fatigue"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "note": [
+          {
+            "text": "Assessed as likely multifactorial: recent viral illness versus inflammation versus work."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-6",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-6",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Possible acute rheumatic fever flare assessed in ED"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional"
+            }
+          ]
+        },
+        "note": [
+          {
+            "text": "ED assessment one week before this encounter following low-grade temperature, sore knees and ankles, and fatigue; discharged for GP follow-up and repeat blood tests."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "code": {
+          "text": "Patient concerns"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Worried the fever is coming back, whether the raised inflammatory markers mean her heart is getting worse, and whether the injections are making the markers high."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "code": {
+          "text": "Symptoms at recent ED presentation"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "One week before this encounter: low-grade temperature, sore knees and ankles, and fatigue."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "code": {
+          "text": "Current knee and ankle symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Knees and ankles remain mildly achy and stiff, especially at the end of a work shift; better with rest and occasional Nurofen. No obvious swelling, redness, or hot joints. Walking and working are unaffected; substantially less severe than the initial episode."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "code": {
+          "text": "Reported fatigue"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Intermittently feels a bit washed out; works long hospitality shifts on her feet."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "code": {
+          "text": "Cardiorespiratory symptom review"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Denies chest pain, shortness of breath, paroxysmal nocturnal dyspnoea, orthopnoea, palpitations, syncope, and decreased exercise tolerance."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "code": {
+          "text": "Associated symptom review"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No rash, nodules, chorea, or skin sores."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "code": {
+          "text": "Sore throat history"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Mild sore throat approximately 3–4 weeks before this encounter, now settled; no sore throat currently."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "status": "final",
+        "code": {
+          "text": "CRP"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 38
+        },
+        "interpretation": [
+          {
+            "text": "High"
+          }
+        ],
+        "note": [
+          {
+            "text": "ED blood test 7 days before this encounter; unit not stated."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "status": "final",
+        "code": {
+          "text": "ESR"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 42
+        },
+        "interpretation": [
+          {
+            "text": "High"
+          }
+        ],
+        "note": [
+          {
+            "text": "ED blood test 7 days before this encounter; unit not stated."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "status": "final",
+        "code": {
+          "text": "Full blood count"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "interpretation": [
+          {
+            "text": "Normal"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "text": "White cell count"
+            },
+            "valueQuantity": {
+              "value": 8.4
+            }
+          },
+          {
+            "code": {
+              "text": "Haemoglobin"
+            },
+            "valueQuantity": {
+              "value": 125
+            }
+          },
+          {
+            "code": {
+              "text": "Platelet count"
+            },
+            "valueQuantity": {
+              "value": 320
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "ED blood tests 7 days before this encounter; units not stated."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-11",
+        "status": "final",
+        "code": {
+          "text": "Urea and electrolytes, liver function tests, and thyroid function tests"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Urea and electrolytes"
+            },
+            "valueString": "Normal"
+          },
+          {
+            "code": {
+              "text": "Liver function tests"
+            },
+            "valueString": "Normal"
+          },
+          {
+            "code": {
+              "text": "Thyroid function tests"
+            },
+            "valueString": "Normal"
+          }
+        ],
+        "note": [
+          {
+            "text": "ED blood tests 7 days before this encounter."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-12",
+        "status": "final",
+        "code": {
+          "text": "Troponin"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Negative",
+        "note": [
+          {
+            "text": "ED test 7 days before this encounter."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "status": "final",
+        "code": {
+          "text": "ED ECG"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Sinus rhythm; PR interval at the upper limit of normal, with no clear increase.",
+        "note": [
+          {
+            "text": "ED assessment 7 days before this encounter."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-14",
+        "status": "final",
+        "code": {
+          "text": "Blood pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Systolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 108,
+              "unit": "mmHg"
+            }
+          },
+          {
+            "code": {
+              "text": "Diastolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 68,
+              "unit": "mmHg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-15",
+        "status": "final",
+        "code": {
+          "text": "Heart rate"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 86,
+          "unit": "beats/minute"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-16",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-16",
+        "status": "final",
+        "code": {
+          "text": "Respiratory rate"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 14,
+          "unit": "breaths/minute"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-17",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-17",
+        "status": "final",
+        "code": {
+          "text": "Temperature"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 37.4,
+          "unit": "°C"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-18",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-18",
+        "status": "final",
+        "code": {
+          "text": "Oxygen saturation"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 99,
+          "unit": "%"
+        },
+        "note": [
+          {
+            "text": "On room air."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-19",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-19",
+        "status": "final",
+        "code": {
+          "text": "Body mass index"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 23,
+          "unit": "kg/m²"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-20",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-20",
+        "status": "final",
+        "code": {
+          "text": "Cardiovascular examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Heart sounds"
+            },
+            "valueString": "Dual heart sounds; no added sounds."
+          },
+          {
+            "code": {
+              "text": "Cardiac murmur"
+            },
+            "valueString": "Soft pansystolic murmur from apex to axilla, consistent with known mitral regurgitation."
+          },
+          {
+            "code": {
+              "text": "Oedema"
+            },
+            "valueString": "No oedema."
+          },
+          {
+            "code": {
+              "text": "Jugular venous pressure"
+            },
+            "valueString": "Normal."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-21",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-21",
+        "status": "final",
+        "code": {
+          "text": "Respiratory examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Clear."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-22",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-22",
+        "status": "final",
+        "code": {
+          "text": "Musculoskeletal examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Knee and ankle range of motion"
+            },
+            "valueString": "Full."
+          },
+          {
+            "code": {
+              "text": "Knee and ankle tenderness"
+            },
+            "valueString": "Mild diffuse periarticular tenderness bilaterally."
+          },
+          {
+            "code": {
+              "text": "Joint inflammation findings"
+            },
+            "valueString": "No effusion, erythema, or warmth; no single hot joint."
+          },
+          {
+            "code": {
+              "text": "Gait"
+            },
+            "valueString": "Normal."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-23",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-23",
+        "status": "final",
+        "code": {
+          "text": "Neurological examination for chorea"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No chorea."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-24",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-24",
+        "status": "final",
+        "code": {
+          "text": "ENT examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Throat looks fine; no lymphadenopathy."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-25",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-25",
+        "status": "final",
+        "code": {
+          "text": "ECG today"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Rhythm"
+            },
+            "valueString": "Sinus rhythm."
+          },
+          {
+            "code": {
+              "text": "ECG heart rate"
+            },
+            "valueQuantity": {
+              "value": 82,
+              "unit": "beats/minute"
+            }
+          },
+          {
+            "code": {
+              "text": "PR interval"
+            },
+            "valueQuantity": {
+              "value": 0.2,
+              "unit": "s"
+            },
+            "interpretation": [
+              {
+                "text": "Borderline, but unchanged from prior."
+              }
+            ]
+          },
+          {
+            "code": {
+              "text": "ST/T changes"
+            },
+            "valueString": "No ST/T changes."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-26",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-26",
+        "status": "final",
+        "code": {
+          "text": "Current clinical assessment findings"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Afebrile and haemodynamically stable. No new major Jones criteria. No evidence of septic arthritis, heart failure, or acute carditis today."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-27",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-27",
+        "status": "final",
+        "code": {
+          "text": "Prior echocardiography finding"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Mild mitral regurgitation on echocardiography at the initial ARF diagnosis approximately 4 months before this encounter."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-1",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "BPG"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "reasonCode": [
+          {
+            "text": "Secondary prophylaxis for ARF/RHD"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "1.2 million units intramuscularly every 28 days.",
+            "route": {
+              "text": "Intramuscular"
+            },
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 28,
+                "periodUnit": "d"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 1.2,
+                  "unit": "million units"
+                }
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Administered through the RHD program; up to date. Patient reports no missed injections. Last injection recorded as '10/7' at AMS, in MHR; the date has not been resolved. Plan is to continue the same regimen."
+          },
+          {
+            "text": "Reassured that the injections are protective and are not causing the raised inflammatory markers."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-2",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-2",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Ibuprofen (Nurofen)"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "reasonCode": [
+          {
+            "text": "Joint pain"
+          }
+        ],
+        "dosage": [
+          {
+            "text": "200–400 mg as needed for joint pain; occasional use, less than 3 times per week.",
+            "asNeededBoolean": true,
+            "doseAndRate": [
+              {
+                "doseRange": {
+                  "low": {
+                    "value": 200,
+                    "unit": "mg"
+                  },
+                  "high": {
+                    "value": 400,
+                    "unit": "mg"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Helps joint symptoms. Clinician approved continued occasional use: maximum 400 mg three times daily with food, for short periods only."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medication-request-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medication-request-1",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Naproxen"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosageInstruction": [
+          {
+            "text": "If pain increases or function becomes limited, trial 250 mg twice daily with food for up to 5 days, then stop. If analgesia is needed for more than 1 week, review.",
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 250,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Conditional treatment plan; current naproxen use is not documented."
+          }
+        ]
+      }
+    }
+  ]
+}
