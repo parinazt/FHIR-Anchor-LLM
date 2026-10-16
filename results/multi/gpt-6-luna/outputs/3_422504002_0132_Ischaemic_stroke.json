@@ -1,0 +1,707 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "male"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Suspected acute ischaemic stroke, right carotid/MCA distribution"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-2",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Atrial fibrillation, rate controlled; anticoagulation status unknown"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-3",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-3",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Type 2 diabetes mellitus"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-4",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-4",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Hypertension (reported as likely)"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "code": {
+          "text": "Blood pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Systolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 178,
+              "unit": "mmHg"
+            }
+          },
+          {
+            "code": {
+              "text": "Diastolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 96,
+              "unit": "mmHg"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Right arm, sitting"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "code": {
+          "text": "Heart rate"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 88,
+          "unit": "beats/min"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "code": {
+          "text": "Pulse rhythm"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Irregularly irregular"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "code": {
+          "text": "Respiratory rate"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 16,
+          "unit": "breaths/min"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "code": {
+          "text": "Oxygen saturation"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 96,
+          "unit": "%"
+        },
+        "note": [
+          {
+            "text": "Room air"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "code": {
+          "text": "Temperature"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 36.9,
+          "unit": "°C"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "code": {
+          "text": "Blood glucose"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 8.7,
+          "unit": "mmol/L"
+        },
+        "note": [
+          {
+            "text": "Point-of-care"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "status": "final",
+        "code": {
+          "text": "Level of consciousness"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Alert; GCS 15"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "status": "final",
+        "code": {
+          "text": "Orientation and timeline"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Some confusion regarding timeline; patient was vague and unable to give a clear last-seen-well time."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "status": "final",
+        "code": {
+          "text": "Left arm weakness"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient reports left arm was not working right; weak and dropping objects, with reduced grip and inability to lift above shoulder. Onset unclear: patient said he woke this morning with symptoms, then said it might have been a few days ago or last week."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-11",
+        "status": "final",
+        "code": {
+          "text": "Left leg weakness"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient reports left leg weakness and wobbliness, holding furniture for support. Neighbour noticed the patient dragging the left leg when going to the toilet today; time unknown."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-12",
+        "status": "final",
+        "code": {
+          "text": "Speech"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Mild slurred speech earlier, now mostly settled per patient. Mild dysarthria on examination; comprehension intact. Neighbour reported speech was slurry earlier."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "status": "final",
+        "code": {
+          "text": "Facial appearance"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Neighbour thought the patient's face looked a bit funny. Mild left lower facial droop with forehead sparing on examination."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-14",
+        "status": "final",
+        "code": {
+          "text": "Eye movements, pupils and visual fields"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Extraocular movements intact; pupils equal and reactive; visual fields grossly intact to confrontation."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-15",
+        "status": "final",
+        "code": {
+          "text": "Tongue"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Tongue midline."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-16",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-16",
+        "status": "final",
+        "code": {
+          "text": "Right-sided motor strength"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Right side 5/5."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-17",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-17",
+        "status": "final",
+        "code": {
+          "text": "Left upper limb motor findings"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Left upper limb 3/5 proximally and distally; reduced grip; drift present."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-18",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-18",
+        "status": "final",
+        "code": {
+          "text": "Left lower limb motor findings"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Left lower limb 4/5; mild drift."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-19",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-19",
+        "status": "final",
+        "code": {
+          "text": "Muscle tone"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Increased tone in left upper limb compared with right."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-20",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-20",
+        "status": "final",
+        "code": {
+          "text": "Reflexes and plantar responses"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reflexes brisk on left compared with right; left plantar response equivocal; right plantar response downgoing."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-21",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-21",
+        "status": "final",
+        "code": {
+          "text": "Sensation"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient described the left side as 'bit dull'; responses inconsistent."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-22",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-22",
+        "status": "final",
+        "code": {
+          "text": "Gait"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Not fully tested; when standing with assistance, clear left leg drag. Unsafe to continue."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-23",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-23",
+        "status": "final",
+        "code": {
+          "text": "Cardiovascular examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Pulse irregularly irregular, rate approximately 80–90; heart sounds I and II; no murmur; no peripheral oedema."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-24",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-24",
+        "status": "final",
+        "code": {
+          "text": "Respiratory examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Chest clear; air entry good."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-25",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-25",
+        "status": "final",
+        "code": {
+          "text": "Meningism"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No meningism."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-26",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-26",
+        "status": "final",
+        "code": {
+          "text": "Headache"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient denies headache."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-27",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-27",
+        "status": "final",
+        "code": {
+          "text": "Chest pain"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient denies chest pain."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-28",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-28",
+        "status": "final",
+        "code": {
+          "text": "Shortness of breath"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient denies shortness of breath."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-29",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-29",
+        "status": "final",
+        "code": {
+          "text": "Palpitations"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient denies palpitations."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-30",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-30",
+        "status": "final",
+        "code": {
+          "text": "Visual symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient denies visual loss and diplopia."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-31",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-31",
+        "status": "final",
+        "code": {
+          "text": "Head trauma and seizure"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient denies head trauma and seizure."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-32",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-32",
+        "status": "final",
+        "code": {
+          "text": "Electrocardiogram"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Atrial fibrillation, ventricular rate approximately 85; no acute ST-T changes."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-1",
+        "status": "unknown",
+        "medicationCodeableConcept": {
+          "text": "Unspecified heart medication (patient unsure of name and dose; described as a little white or blue pill)"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "note": [
+          {
+            "text": "Patient's account is vague; current use is unclear."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-2",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-2",
+        "status": "unknown",
+        "medicationCodeableConcept": {
+          "text": "Unspecified diabetes tablet (patient unsure of name and dose)"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "note": [
+          {
+            "text": "Patient's account is vague; current use is unclear."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-3",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-3",
+        "status": "unknown",
+        "medicationCodeableConcept": {
+          "text": "Unspecified blood pressure tablet (patient unsure of name and dose)"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "note": [
+          {
+            "text": "Patient's account is vague; current use is unclear."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-4",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-4",
+        "status": "unknown",
+        "medicationCodeableConcept": {
+          "text": "Warfarin"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "note": [
+          {
+            "text": "Patient thinks he used to take warfarin and may have changed to a NOAC; whether he is currently anticoagulated is unclear."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medication-request-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medication-request-1",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Aspirin"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Start once intracranial haemorrhage is excluded, if the patient is not on anticoagulation and there is no contraindication."
+          }
+        ]
+      }
+    }
+  ]
+}

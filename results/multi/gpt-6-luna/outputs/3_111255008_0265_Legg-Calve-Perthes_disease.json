@@ -1,0 +1,177 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "male"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "History of Legg-Calvé-Perthes disease of the right hip in childhood"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-2",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Possible residual deformity or early osteoarthritis of the right hip"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "code": {
+          "text": "Right hip abduction"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Limited right hip abduction was noted at a recent work medical."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "code": {
+          "text": "Right hip stiffness"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Intermittent right hip stiffness over the last 1–2 years, especially when getting in or out of the ute, squatting, or kneeling at work."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "code": {
+          "text": "Right groin ache"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Intermittent deep right groin ache on some days after a long shift; settles with rest and Nurofen 400 mg as needed, about once a week."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "code": {
+          "text": "Acute right hip pain"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No acute pain today."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "code": {
+          "text": "Right hip pain-associated symptoms and red flags"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports no night pain, fevers, trauma, locking, or true giving way."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "code": {
+          "text": "Weight-bearing behavior during right hip symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Sometimes leans more on the left when the right hip flares."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "code": {
+          "text": "Prior right hip examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "At a prior face-to-face visit, described as approximately 10/12 ago, mild decrease in right hip abduction and internal rotation; otherwise NAD."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-1",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Ibuprofen (Nurofen)"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosage": [
+          {
+            "text": "400 mg as needed, about once a week"
+          }
+        ],
+        "note": [
+          {
+            "text": "Plan: continue ibuprofen 400 mg three times daily as needed with food; avoid if gastrointestinal upset."
+          }
+        ]
+      }
+    }
+  ]
+}

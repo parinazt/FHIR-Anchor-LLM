@@ -1,0 +1,433 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "male"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Bilateral keratoconus, reported stable by history"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-2",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Non-specific fatigue, likely multifactorial"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "code": {
+          "text": "Scratchy eyes"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports eyes are mostly fine but a bit scratchy at the end of the day while using RGP contact lenses"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "code": {
+          "text": "Acute ocular symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Denies sudden decrease in vision, eye pain, redness, photophobia, discharge, halos, and diplopia"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "code": {
+          "text": "Eye rubbing"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "History of eye rubbing associated with allergy; says they are trying not to rub their eyes now"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "code": {
+          "text": "Reported keratoconus stability"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports ophthalmology review approximately 8 months ago and was told the condition was stable; next appointment booked in approximately 4 months"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "code": {
+          "text": "Fatigue"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports fatigue for 2–3 months and feeling a bit run down"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "code": {
+          "text": "Sleep duration"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports sleeping 5–6 hours on weekdays"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "code": {
+          "text": "Snoring and apnoeas"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No snoring or apnoeas reported"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "status": "final",
+        "code": {
+          "text": "Fatigue-associated symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Denies weight loss, fevers, night sweats, shortness of breath, chest pain, bowel change, bleeding, and recurrent infections"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "status": "final",
+        "code": {
+          "text": "Mood symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Denies low mood, anhedonia, and suicidal ideation"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "status": "final",
+        "code": {
+          "text": "Blood pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Systolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 118,
+              "unit": "mmHg"
+            }
+          },
+          {
+            "code": {
+              "text": "Diastolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 74,
+              "unit": "mmHg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-11",
+        "status": "final",
+        "code": {
+          "text": "Heart rate"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 72,
+          "unit": "beats/minute"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-12",
+        "status": "final",
+        "code": {
+          "text": "Temperature"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Afebrile"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "status": "final",
+        "code": {
+          "text": "Oxygen saturation"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 99,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "note": [
+          {
+            "text": "On room air"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-14",
+        "status": "final",
+        "code": {
+          "text": "Body mass index"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Approximately 27"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-15",
+        "status": "final",
+        "code": {
+          "text": "Eye examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No obvious corneal scar or opacity on torch examination; no redness or discharge; no photophobia"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-16",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-16",
+        "status": "final",
+        "code": {
+          "text": "Visual acuity"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Approximately 6/7.5 in both eyes with contact lenses"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-17",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-17",
+        "status": "final",
+        "code": {
+          "text": "Pupillary response"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "PERRLA"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-18",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-18",
+        "status": "final",
+        "code": {
+          "text": "Extraocular movements"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "EOMI"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-19",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-19",
+        "status": "final",
+        "code": {
+          "text": "General examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Otherwise NAD"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-20",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-20",
+        "status": "final",
+        "code": {
+          "text": "Right shoulder ache"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports right shoulder ache at the gym; not addressed today"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-21",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-21",
+        "status": "final",
+        "code": {
+          "text": "Jaw clicking"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports clicking jaw; not addressed today"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-22",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-22",
+        "status": "final",
+        "code": {
+          "text": "Dandruff"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports mild dandruff; not addressed today"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-23",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-23",
+        "status": "final",
+        "code": {
+          "text": "Moles"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports having a few moles and wants a skin check; not addressed today"
+      }
+    }
+  ]
+}

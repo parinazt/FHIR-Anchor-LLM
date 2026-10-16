@@ -1,0 +1,199 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "male"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Benzodiazepine use disorder, likely moderate to severe, with withdrawal symptoms"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-2",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Chronic psychosis, partially symptomatic by history; off antipsychotics for 6+ months"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-3",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-3",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Personality disorder, unspecified type; previously diagnosed by history"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-4",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-4",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Chronic insomnia"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "code": {
+          "text": "Benzodiazepine withdrawal symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient reports that when without benzodiazepines he feels very edgy, cannot sleep, and feels sick and sweaty."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "code": {
+          "text": "Voices and paranoia"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient reports a history of voices and paranoia. Voices currently come and go and are “not too bad now”; described as background only."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "code": {
+          "text": "Insomnia"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient reports chronic insomnia for years, worse when trying to reduce benzodiazepines."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "code": {
+          "text": "Suicidal or homicidal ideation"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient denies current suicidal or homicidal ideation."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "code": {
+          "text": "History of withdrawal seizures"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient reports no history of withdrawal seizures."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "code": {
+          "text": "Work attendance affected by sleep and benzodiazepine effects"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient reports missing casual work shifts due to poor sleep and “benzo hangover”."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-1",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Benzodiazepines, including diazepam"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosage": [
+          {
+            "text": "Uses daily; estimated 20–30 mg diazepam-equivalent most days for the last 12–18 months. Includes prescribed and non-prescribed use."
+          }
+        ],
+        "note": [
+          {
+            "text": "Patient reports a long history of benzodiazepine use, initially diazepam for anxiety and sleep."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-2",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-2",
+        "status": "stopped",
+        "medicationCodeableConcept": {
+          "text": "Olanzapine"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "note": [
+          {
+            "text": "Patient thinks he was previously on olanzapine for psychosis and reports stopping it about 6 months ago because of weight gain and sedation; dose unknown."
+          }
+        ]
+      }
+    }
+  ]
+}

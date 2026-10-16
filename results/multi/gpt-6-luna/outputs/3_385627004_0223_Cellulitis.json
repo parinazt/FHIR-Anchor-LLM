@@ -1,0 +1,543 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "female"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Likely mild non-purulent cellulitis of the right lower leg"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "code": {
+          "text": "Blood pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Systolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 126,
+              "unit": "mmHg"
+            }
+          },
+          {
+            "code": {
+              "text": "Diastolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 78,
+              "unit": "mmHg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "code": {
+          "text": "Heart rate"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 84,
+          "unit": "beats/min"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "code": {
+          "text": "Heart rhythm"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Regular"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "code": {
+          "text": "Respiratory rate"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 14,
+          "unit": "breaths/min"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "code": {
+          "text": "Oxygen saturation"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 99,
+          "unit": "%"
+        },
+        "note": [
+          {
+            "text": "On room air"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "code": {
+          "text": "Body temperature"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 37.1,
+          "unit": "°C"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "code": {
+          "text": "Reported home temperature"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient reports home temperature was \"normal\"."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "status": "final",
+        "code": {
+          "text": "Right lower leg redness"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient noticed a small red patch on the right shin yesterday morning, initially thought to be an insect bite. Today redness had increased and felt to have spread a little down and around the side over approximately 24–36 hours. Examination: poorly demarcated erythema over the anterior shin, approximately 12 cm craniocaudal by approximately 8 cm circumferentially."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "status": "final",
+        "code": {
+          "text": "Right lower leg warmth and tenderness"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient reports local warmth and mild tenderness to palpation. Examination found mild warmth and mild tenderness to palpation."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "status": "final",
+        "code": {
+          "text": "Right lower leg tightness and itching"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient reports the skin feels \"tight\" on standing. Initially no itch; now mild itch at the edges only."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-11",
+        "status": "final",
+        "code": {
+          "text": "Right lower leg pain"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Pain approximately 3/10; not out of proportion. Patient reports being able to weight bear and walk."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-12",
+        "status": "final",
+        "code": {
+          "text": "Systemic symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient reports no fever, rigors, sweats, malaise, nausea, vomiting, or dizziness."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "status": "final",
+        "code": {
+          "text": "Right lower leg skin and soft tissue findings"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No pus or obvious wound reported by patient. Examination: skin intact with a few small superficial shaving nicks noted, possible portal of entry; no crepitus, bullae, necrosis, obvious abscess, or ulceration."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-14",
+        "status": "final",
+        "code": {
+          "text": "Right lower leg and adjacent areas"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No streaking up the leg. No involvement of the knee or foot. Left leg normal."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-15",
+        "status": "final",
+        "code": {
+          "text": "Distal neurovascular examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Distal pulses palpable; capillary refill less than 2 seconds; sensation grossly intact; full range of motion at ankle and knee."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-16",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-16",
+        "status": "final",
+        "code": {
+          "text": "Inguinal lymph nodes"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No significant inguinal lymphadenopathy."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-17",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-17",
+        "status": "final",
+        "code": {
+          "text": "General appearance"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Well appearing, alert, talking in full sentences, and in no distress."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-18",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-18",
+        "status": "final",
+        "code": {
+          "text": "Cardiovascular examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Heart sounds dual; no murmur."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-19",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-19",
+        "status": "final",
+        "code": {
+          "text": "Respiratory examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Chest clear with equal air entry; no increased work of breathing."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-20",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-20",
+        "status": "final",
+        "code": {
+          "text": "Abdominal examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Abdomen soft and non-tender."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-1",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Ibuprofen"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "note": [
+          {
+            "text": "Occasional use only; one dose taken this afternoon. Dose not specified."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-2",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-2",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Paracetamol"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "note": [
+          {
+            "text": "Occasional use only."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medication-request-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medication-request-1",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Flucloxacillin"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosageInstruction": [
+          {
+            "text": "500 mg orally four times daily for 5 days",
+            "route": {
+              "text": "oral"
+            },
+            "timing": {
+              "repeat": {
+                "frequency": 4,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 500,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medication-request-2",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medication-request-2",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Paracetamol"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1 g orally four times daily as needed; maximum 4 g per 24 hours",
+            "route": {
+              "text": "oral"
+            },
+            "asNeededBoolean": true,
+            "timing": {
+              "repeat": {
+                "frequency": 4,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 1,
+                  "unit": "g"
+                }
+              }
+            ],
+            "maxDosePerPeriod": {
+              "numerator": {
+                "value": 4,
+                "unit": "g"
+              },
+              "denominator": {
+                "value": 1,
+                "unit": "day"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medication-request-3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medication-request-3",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Ibuprofen"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosageInstruction": [
+          {
+            "text": "400 mg orally three times daily as needed, with food, if no GI issues or other contraindications",
+            "route": {
+              "text": "oral"
+            },
+            "asNeededBoolean": true,
+            "timing": {
+              "repeat": {
+                "frequency": 3,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 400,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

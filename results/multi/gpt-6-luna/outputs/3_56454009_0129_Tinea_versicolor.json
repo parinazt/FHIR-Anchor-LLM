@@ -1,0 +1,433 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "male"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional"
+            }
+          ]
+        },
+        "code": {
+          "text": "Primary headache, tension versus migraine type"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-2",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "code": {
+          "text": "Tinea versicolor"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "code": {
+          "text": "Headache"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Intermittent frontal/retro-orbital pressing, band-like headache for approximately 1–2 weeks, possibly longer; worse at the end of shifts and with bright lights/screens; partially improves with over-the-counter analgesia, dose uncertain."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "code": {
+          "text": "Headache-associated symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Mild nausea and photophobia when the headache is bad; no vomiting."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "code": {
+          "text": "Headache red-flag symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No thunderclap headache, headache waking the patient from sleep, or recent head trauma."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "code": {
+          "text": "Neurological symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No focal neurological symptoms, speech change, or limb weakness or tingling."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "code": {
+          "text": "Sleep"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Sleeps 5–6 hours."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "code": {
+          "text": "Meal pattern"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Skips meals."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "code": {
+          "text": "Caffeine and energy drink intake"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "High coffee and energy drink intake."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "status": "final",
+        "code": {
+          "text": "Skin concern"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "White patches on the upper back and shoulders present for approximately 1–2 years, worse in summer, with mild itch when sweating; previously given 'shampoo/cream'."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "status": "final",
+        "code": {
+          "text": "Blood pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Systolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 118,
+              "unit": "mmHg"
+            }
+          },
+          {
+            "code": {
+              "text": "Diastolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 72,
+              "unit": "mmHg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "status": "final",
+        "code": {
+          "text": "Heart rate"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 78,
+          "unit": "beats/min"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-11",
+        "status": "final",
+        "code": {
+          "text": "Respiratory rate"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 16,
+          "unit": "breaths/min"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-12",
+        "status": "final",
+        "code": {
+          "text": "Body temperature"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 36.8,
+          "unit": "°C"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "status": "final",
+        "code": {
+          "text": "Oxygen saturation"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 99,
+          "unit": "%"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-14",
+        "status": "final",
+        "code": {
+          "text": "Oxygen delivery"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Room air."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-15",
+        "status": "final",
+        "code": {
+          "text": "General appearance and alertness"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Well, no acute distress; alert."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-16",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-16",
+        "status": "final",
+        "code": {
+          "text": "Glasgow Coma Scale"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 15,
+          "unit": "score"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-17",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-17",
+        "status": "final",
+        "code": {
+          "text": "Neurological examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Cranial nerves II–XII intact; power 5/5 in upper and lower limbs; tone, sensation, coordination, and gait normal."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-18",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-18",
+        "status": "final",
+        "code": {
+          "text": "Meningism and neck examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No meningism; full neck range of motion."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-19",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-19",
+        "status": "final",
+        "code": {
+          "text": "Sinus, tympanic membrane, and nasal examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Sinuses non-tender; tympanic membranes and nose normal."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-20",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-20",
+        "status": "final",
+        "code": {
+          "text": "Fundoscopy"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Limited fundoscopy; discs sharp, with no obvious papilloedema."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-21",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-21",
+        "status": "final",
+        "code": {
+          "text": "Upper back and shoulder skin examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Multiple well-demarcated hypopigmented macules and patches with fine scale, some coalescing; evoked scale present; no erythema."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-1",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "OTC analgesia (unspecified)"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosage": [
+          {
+            "text": "As needed; specific medicine and dose unknown",
+            "asNeededBoolean": true
+          }
+        ]
+      }
+    }
+  ]
+}

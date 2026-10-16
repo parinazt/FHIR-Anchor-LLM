@@ -1,0 +1,613 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "male"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Pulmonary tuberculosis, smear-positive"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "code": {
+          "text": "Sputum smear result"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reported positive; patient says he was told the sputum was positive. Test details not provided."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "code": {
+          "text": "Cough"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Cough for approximately 4 months; still present but less since starting tablets."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "code": {
+          "text": "Sputum"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Productive cough with yellow sputum."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "code": {
+          "text": "Haemoptysis"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient denies haemoptysis."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "code": {
+          "text": "Fever"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Had fevers before diagnosis. No fever today; felt hot 2 nights ago."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "code": {
+          "text": "Night sweats"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Night sweats before diagnosis."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "code": {
+          "text": "Weight loss"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reported weight loss before diagnosis: “belt another notch.”"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "status": "final",
+        "code": {
+          "text": "Pleuritic chest pain"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient denies pleuritic chest pain."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "status": "final",
+        "code": {
+          "text": "Breathlessness"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No significant shortness of breath at rest; gets puffed when running for the bus."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "status": "final",
+        "code": {
+          "text": "Tiredness"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Tired."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-11",
+        "status": "final",
+        "code": {
+          "text": "Appetite"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Appetite a bit better."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-12",
+        "status": "final",
+        "code": {
+          "text": "Nausea"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Mild nausea if taking tablets on an empty stomach."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "status": "final",
+        "code": {
+          "text": "Vomiting"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient denies vomiting."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-14",
+        "status": "final",
+        "code": {
+          "text": "Abdominal pain"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient denies abdominal pain."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-15",
+        "status": "final",
+        "code": {
+          "text": "Dark urine"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient denies dark urine."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-16",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-16",
+        "status": "final",
+        "code": {
+          "text": "Jaundice"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No jaundice reported or seen on examination."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-17",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-17",
+        "status": "final",
+        "code": {
+          "text": "Visual change"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient denies visual change."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-18",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-18",
+        "status": "final",
+        "code": {
+          "text": "Paraesthesia"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient denies paraesthesia."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-19",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-19",
+        "status": "final",
+        "code": {
+          "text": "Headache"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient denies headache."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-20",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-20",
+        "status": "final",
+        "code": {
+          "text": "Confusion"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient denies confusion."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-21",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-21",
+        "status": "final",
+        "code": {
+          "text": "Neck stiffness"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient denies neck stiffness."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-22",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-22",
+        "status": "final",
+        "code": {
+          "text": "Urinary symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient denies urinary symptoms."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-23",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-23",
+        "status": "final",
+        "code": {
+          "text": "Joint pain"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient denies joint pain."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-24",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-24",
+        "status": "final",
+        "code": {
+          "text": "Back pain"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Back pain mentioned but not addressed today; further details not documented."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-25",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-25",
+        "status": "final",
+        "code": {
+          "text": "Blood pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Systolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 118,
+              "unit": "mmHg"
+            }
+          },
+          {
+            "code": {
+              "text": "Diastolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 72,
+              "unit": "mmHg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-26",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-26",
+        "status": "final",
+        "code": {
+          "text": "Heart rate"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 86,
+          "unit": "bpm"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-27",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-27",
+        "status": "final",
+        "code": {
+          "text": "Respiratory rate"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 18,
+          "unit": "/min"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-28",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-28",
+        "status": "final",
+        "code": {
+          "text": "Oxygen saturation"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 98,
+          "unit": "%"
+        },
+        "note": [
+          {
+            "text": "Room air."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-29",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-29",
+        "status": "final",
+        "code": {
+          "text": "Temperature"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 36.9,
+          "unit": "°C"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-30",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-30",
+        "status": "final",
+        "code": {
+          "text": "General appearance"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Thin but not wasted; looks tired; no acute distress; speaking in full sentences."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-31",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-31",
+        "status": "final",
+        "code": {
+          "text": "Chest examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Mild crackles and bronchial breath sounds in the right upper lobe; rest of chest clear; no increased work of breathing."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-32",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-32",
+        "status": "final",
+        "code": {
+          "text": "Abdominal examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Abdomen soft and non-tender."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-33",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-33",
+        "status": "final",
+        "code": {
+          "text": "Neurological examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Grossly non-focal."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-34",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-34",
+        "status": "final",
+        "code": {
+          "text": "Affect and speech"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Anxious and circumstantial."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-1",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "TB medications (four tablets; regimen likely INH/RIF/PZA/ETH, unconfirmed)"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosage": [
+          {
+            "text": "Four tablets once daily. Patient reports one missed morning dose yesterday, taken in the evening instead; otherwise compliant."
+          }
+        ],
+        "note": [
+          {
+            "text": "Patient reports taking these TB medications for 6 days. Exact regimen and doses have not been confirmed."
+          }
+        ]
+      }
+    }
+  ]
+}

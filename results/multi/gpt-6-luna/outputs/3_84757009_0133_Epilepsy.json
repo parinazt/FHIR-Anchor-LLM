@@ -1,0 +1,643 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "male"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "code": {
+          "text": "Known symptomatic focal-onset epilepsy secondary to tuberous sclerosis, with focal aware motor seizures involving the right arm and face, sometimes with speech arrest; mildly increased frequency over the past 3 weeks."
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-2",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "code": {
+          "text": "Tuberous sclerosis, chronic and stable by history."
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-3",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-3",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "code": {
+          "text": "Developmental delay with moderate intellectual disability."
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-4",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-4",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "code": {
+          "text": "Health anxiety regarding epilepsy and brain pathology."
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "code": {
+          "text": "Focal seizure event frequency"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports 3 events last week, with increased frequency over the past ~3 weeks."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "code": {
+          "text": "Focal seizure event description"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports a weird feeling and jerking confined to the right arm and face, lasting 30–60 seconds."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "code": {
+          "text": "Awareness during events"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports remaining aware and able to hear others during events."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "code": {
+          "text": "Speech during events"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports speech arrest and being unable to talk properly during events."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "code": {
+          "text": "Post-event tiredness"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports tiredness for a few minutes after events; no prolonged confusion."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "code": {
+          "text": "Loss of consciousness during events"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports no loss of consciousness."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "code": {
+          "text": "Generalized tonic-clonic activity during recent events"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports no generalized tonic-clonic activity during the recent events."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "status": "final",
+        "code": {
+          "text": "Last generalized tonic-clonic seizure"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Last GTC reported ~8/12 ago."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "status": "final",
+        "code": {
+          "text": "Mother's description of recent events"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Mother reports the events are the same as his usual ones, just a bit more often."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "status": "final",
+        "code": {
+          "text": "Tongue biting with events"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No tongue bite reported."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-11",
+        "status": "final",
+        "code": {
+          "text": "Incontinence with events"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No incontinence reported."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-12",
+        "status": "final",
+        "code": {
+          "text": "Injury with events"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No injury reported."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "status": "final",
+        "code": {
+          "text": "Sleep"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports poor sleep for ~1 month due to worry, lying awake thinking about his brain."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-14",
+        "status": "final",
+        "code": {
+          "text": "Energy drink consumption"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports increased intake of 2–3 energy drink cans per day; using a new brand."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-15",
+        "status": "final",
+        "code": {
+          "text": "Persistent weakness"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports no persistent weakness."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-16",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-16",
+        "status": "final",
+        "code": {
+          "text": "Persistent speech change"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports no persistent speech change."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-17",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-17",
+        "status": "final",
+        "code": {
+          "text": "Vision loss"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports no vision loss."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-18",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-18",
+        "status": "final",
+        "code": {
+          "text": "Severe headache"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports no new severe headache."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-19",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-19",
+        "status": "final",
+        "code": {
+          "text": "Fever"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports no fever."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-20",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-20",
+        "status": "final",
+        "code": {
+          "text": "Neck stiffness"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports no neck stiffness."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-21",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-21",
+        "status": "final",
+        "code": {
+          "text": "Recent head trauma"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports no recent head trauma."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-22",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-22",
+        "status": "final",
+        "code": {
+          "text": "Alcohol use"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports no alcohol use."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-23",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-23",
+        "status": "final",
+        "code": {
+          "text": "Illicit substance use"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports no illicit substance use."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-24",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-24",
+        "status": "final",
+        "code": {
+          "text": "Anxiety about brain health"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient reports being very anxious and scared that the increased events mean his brain is getting worse; worries about a brain tumour or status epilepticus going unnoticed. Longstanding health anxiety about his brain, with frequent googling about seizures, cancer and stroke."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-25",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-25",
+        "status": "final",
+        "code": {
+          "text": "Suicidal ideation"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No suicidal ideation reported."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-26",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-26",
+        "status": "final",
+        "code": {
+          "text": "Speech on telephone screen"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Speaking in full sentences; no obvious dysarthria or word-finding problem on brief phone screen."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-27",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-27",
+        "status": "final",
+        "code": {
+          "text": "Orientation and interaction on telephone screen"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Oriented and chatting appropriately on brief phone screen; no obvious confusion."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-28",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-28",
+        "status": "final",
+        "code": {
+          "text": "Anxiety observed on telephone screen"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Mildly anxious on brief phone screen."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-1",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Sodium valproate"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosage": [
+          {
+            "text": "500 mg twice daily",
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 500,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-2",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-2",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Lamotrigine"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosage": [
+          {
+            "text": "100 mg twice daily",
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 100,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-3",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-3",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Everolimus"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosage": [
+          {
+            "text": "Approximately 5 mg in the morning",
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 5,
+                  "unit": "mg"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-4",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-4",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Midazolam"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosage": [
+          {
+            "text": "Nasal, as needed for prolonged seizure; never used in more than 12 months",
+            "asNeededBoolean": true,
+            "route": {
+              "text": "nasal"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

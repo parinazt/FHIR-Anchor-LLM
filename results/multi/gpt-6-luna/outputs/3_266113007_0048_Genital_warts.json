@@ -1,0 +1,364 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "female"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Tension-type headache, likely stress/posture/sleep/screen related"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-2",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "External vulvar genital warts, consistent with HPV 6/11"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-3",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-3",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "At-risk sexual behaviour: inconsistent condom use and no recent STI screen; HPV vaccination status uncertain"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "code": {
+          "text": "Headache"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Intermittent dull band-like headache for approximately 3 weeks, frontal and temples with possible occipital involvement; usually 3–4/10, up to 6/10 on bad days. Worse later in the day after long bar shifts or screen use. Sleep helps; Panadol 500 mg, 1–2 tablets as needed, gives partial relief."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "code": {
+          "text": "Associated headache symptoms and pertinent negatives"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No thunderclap onset or 'worst ever' headache. No vomiting; rare mild nausea. No photophobia, phonophobia, aura, visual changes, focal neurological symptoms, speech changes, confusion, fever, neck stiffness, weight loss, night sweats, sinus symptoms, or trauma."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "code": {
+          "text": "Vulval bumps and associated symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Reports vulval 'little bumps' for 2–3 months, thought possibly related to shaving. Mild itch or irritation after sex or wiping; no significant pain, bleeding, discharge, or systemic symptoms."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "code": {
+          "text": "Blood pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "Systolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 112,
+              "unit": "mmHg"
+            }
+          },
+          {
+            "code": {
+              "text": "Diastolic blood pressure"
+            },
+            "valueQuantity": {
+              "value": 70,
+              "unit": "mmHg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "code": {
+          "text": "Heart rate"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "78"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "code": {
+          "text": "Temperature status"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Afebrile"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "code": {
+          "text": "Neurological and meningeal examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Neurological examination non-focal; cranial nerves intact; gait and coordination normal; no meningism."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "status": "final",
+        "code": {
+          "text": "Fundoscopy"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "No abnormality detected; no papilloedema."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "status": "final",
+        "code": {
+          "text": "External vulval examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Multiple 2–4 mm soft, skin-coloured/verrucous papules, approximately 6–8, on the labia minora and posterior introitus; non-tender; no ulceration or vesicles."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "status": "final",
+        "code": {
+          "text": "Vaginal, cervical, and inguinal examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Vagina and cervix normal; no discharge; no inguinal lymphadenopathy."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationStatement/medication-statement-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medication-statement-1",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Panadol"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosage": [
+          {
+            "text": "500 mg, 1–2 tablets as needed; partial relief",
+            "asNeededBoolean": true,
+            "doseAndRate": [
+              {
+                "doseRange": {
+                  "low": {
+                    "value": 500,
+                    "unit": "mg"
+                  },
+                  "high": {
+                    "value": 1000,
+                    "unit": "mg"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medication-request-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medication-request-1",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Paracetamol"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1 g four times daily as needed; maximum 4 g/day. Avoid use for more than 15 days per month.",
+            "asNeededBoolean": true,
+            "timing": {
+              "repeat": {
+                "frequency": 4,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 1,
+                  "unit": "g"
+                }
+              }
+            ],
+            "maxDosePerPeriod": {
+              "numerator": {
+                "value": 4,
+                "unit": "g"
+              },
+              "denominator": {
+                "value": 1,
+                "unit": "day"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medication-request-2",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medication-request-2",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Imiquimod 5% cream (Aldara)"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Apply a thin layer to visible warts at night 3 times per week (e.g. Monday, Wednesday, Friday). Wash off 6–10 hours later. Use for up to 16 weeks or until clearance. If marked irritation occurs, reduce frequency or pause.",
+            "route": {
+              "text": "topical"
+            },
+            "timing": {
+              "repeat": {
+                "frequency": 3,
+                "period": 1,
+                "periodUnit": "wk"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

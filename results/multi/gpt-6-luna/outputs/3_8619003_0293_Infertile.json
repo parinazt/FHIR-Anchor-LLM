@@ -1,0 +1,340 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "gender": "female"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Primary infertility (trying to conceive for 18 months)"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-2",
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "code": {
+          "text": "Endometriosis, status post laparoscopy and excision, currently stable"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "status": "final",
+        "code": {
+          "text": "Day 3 blood tests"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "component": [
+          {
+            "code": {
+              "text": "FSH"
+            },
+            "valueQuantity": {
+              "value": 7
+            }
+          },
+          {
+            "code": {
+              "text": "LH"
+            },
+            "valueQuantity": {
+              "value": 5
+            }
+          },
+          {
+            "code": {
+              "text": "Estradiol (E2)"
+            },
+            "valueQuantity": {
+              "value": 180
+            }
+          },
+          {
+            "code": {
+              "text": "Prolactin (PRL)"
+            },
+            "valueQuantity": {
+              "value": 260
+            }
+          },
+          {
+            "code": {
+              "text": "TSH"
+            },
+            "valueQuantity": {
+              "value": 1.7
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "All within normal limits."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "status": "final",
+        "code": {
+          "text": "Day 21 progesterone"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 34,
+          "unit": "nmol/L"
+        },
+        "note": [
+          {
+            "text": "Assessed as ovulatory."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "status": "final",
+        "code": {
+          "text": "Anti-Müllerian hormone (AMH)"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueQuantity": {
+          "value": 8,
+          "unit": "pmol/L"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 7,
+              "unit": "pmol/L"
+            },
+            "high": {
+              "value": 30,
+              "unit": "pmol/L"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Low-normal for age."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "status": "final",
+        "code": {
+          "text": "Pelvic transvaginal ultrasound"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Uterus and endometrium NAD; ovaries normal volume; antral follicle count OK; no PCOS, no hydrosalpinx, no large endometrioma; possible minor adhesions at the left adnexa."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "status": "final",
+        "code": {
+          "text": "Partner semen analysis"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Partner's semen analysis: volume, count, motility, and morphology all within normal limits; no significant male factor."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "status": "final",
+        "code": {
+          "text": "Menstrual pattern and symptoms"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Cycles every 28–30 days; bleeding lasts 5–6 days; dysmenorrhoea on days 1–2 only; no intermenstrual bleeding or postcoital bleeding."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "status": "final",
+        "code": {
+          "text": "Galactorrhoea"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Patient reports no galactorrhoea."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "status": "final",
+        "code": {
+          "text": "Weight"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Weight stable."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "status": "final",
+        "code": {
+          "text": "Dyspareunia"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Occasional deep dyspareunia."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "status": "final",
+        "code": {
+          "text": "Trying to conceive duration"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Approximately 18 months of trying to conceive with regular unprotected intercourse."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-11",
+        "status": "final",
+        "code": {
+          "text": "Vital signs"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Vital signs stable."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-12",
+        "status": "final",
+        "code": {
+          "text": "Body mass index"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Approximately 24."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "status": "final",
+        "code": {
+          "text": "Appearance and affect on examination"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Looks well; a bit teary when IVF was mentioned."
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-14",
+        "status": "final",
+        "code": {
+          "text": "Stress related to trying to conceive"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "valueString": "Mild stress; coping OK."
+      }
+    }
+  ]
+}
